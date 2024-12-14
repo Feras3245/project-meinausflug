@@ -1,0 +1,34 @@
+{# <div {{attributes}} class="review-score">
+    {% set fullStars = this.score|round(0.5, 'floor') %}
+    {% set halfStar = this.score - fullStars >= 0.5 %}
+    {% for i in 1..fullStars %}
+        <twig:Icons:FullStarIcon/>
+    {% endfor %}
+    {% if halfStar %}
+        <twig:Icon:HalfStarIcon/>
+    {% endif %}
+    <span>{{this.score}}</span>
+</div> #}
+
+<div {{attributes}} class="review-score">
+    {% set fullStars = this.score|round(0, 'floor') %}
+    {% set filledStars = fullStars %}
+
+    {% for i in 1..fullStars %}
+            <twig:Icons:FullStarIcon/>
+    {% endfor %}
+
+    {% if this.score - fullStars >= 0.5 %}
+        {% set filledStars = filledStars + 1 %}
+        <twig:Icons:HalfStarIcon/>
+    {% endif %}
+
+    {% set emptyStars = 5 - filledStars %}
+    {% if emptyStars != 0 %}
+        {% for i in 1..emptyStars %}
+            <twig:Icons:EmptyStarIcon/>
+        {% endfor %}
+    {% endif %}
+
+    <span>{{this.score}}</span>
+</div>

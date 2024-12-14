@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{asset('styles/light-theme.css')}}">
+{% endblock %}
+
+{% block body %}
+    {# <twig:Containers:NavBar/>
+    <twig:Containers:NavSideBar/>
+    <br><br>
+    <twig:Components:UserActions>
+        <twig:Components:Button type="tertiary"><twig:Icons:FavoriteIcon/></twig:Components:Button>
+        <twig:Components:Button type="tertiary"><twig:Icons:ShareIcon/></twig:Components:Button>
+        <twig:Components:Button type="tertiary"><twig:Icons:HideIcon/></twig:Components:Button>
+        <twig:Components:Button type="tertiary"><twig:Icons:CompareIcon/></twig:Components:Button>
+    </twig:Components:UserActions>
+    <br><br>
+    <twig:Components:ReviewScore score="5"/>
+    <br><br>
+    <twig:Containers:DestinationContainer 
+        uuid="123456"
+        destTitle="Dubai, UAE"
+        subtitle="From desert adventures to thrilling waterparks, Dubai has it all."
+        totalReviews="142"
+        avgScore="4.5"
+        city="Dubai"
+        :images="[
+        asset('images/image1.jpg'),
+        asset('images/image2.jpg'),
+        asset('images/image3.jpg'),
+        asset('images/image4.jpg'),
+        asset('images/image5.jpg')]"
+        description="See the city from above at Skydive Dubai, or brave the edge walk with family and friends to enjoy spectacular views of the Burj Khalifa and the Dubai Fountain. You can also visit an indoor tropical forest with over 3,000 plants and animals at The Green Planet.
+
+                    Dubai's skyline is dotted with architectural marvels and surprising feats of engineering. Start your holiday with a visit to the top of Burj Khalifa, the world's tallest tower, or fast forward in time at the Museum of the Future.
+
+                    One of the best places to start your Dubai experience is at Dubai Museum in the historic area by the Dubai Creek. Discover Dubai's pearl diving roots and take a traditional boat ride between the textile, spice and gold souks."
+    /> #}
+
+    {{ phpinfo | raw }}
+
+{% endblock %}

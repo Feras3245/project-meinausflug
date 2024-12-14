@@ -1,0 +1,84 @@
+<div id="slideshow-{{this.uuid}}" class="slideshow">
+    <div class="image-frame"></div>
+    <div class="slideshow-controls">
+        <a class="icon-button arrow-left">
+            <twig:Icons:ArrowLeftIcon />
+        </a>
+        {% for image in images %}
+        <div class="slide" data-index="{{ loop.index }}"
+            data-selected="{% if loop.first %} 'yes' {% else %} 'no' {% endif %}">
+            <twig:Icons:SlideBarIcon />
+        </div>
+        {% endfor %}
+        <a class="icon-button arrow-right">
+            <twig:Icons:ArrowRightIcon />
+        </a>
+        <script>
+            $(document).ready(function () {
+                const root = $('#slideshow-{{ uuid }}'); // Scope to this specific slideshow
+                const images = [
+                    {% for image in images %}
+                    '{{ image }}'{{ loop.last ? '' : ',' }}
+                {% endfor %}
+            ];
+            let currentIndex = 0;
+            const imageFrame = root.find('.image-frame');
+            const slides = root.find('.slide');
+            let interval;
+
+            // Function to update the slideshow
+            function updateSlideshow(index) {
+                currentIndex = index;
+                imageFrame.css('background-image', `url(${images[currentIndex]})`);
+                slides.attr('data-selected', 'no'); // Deselect all slides
+                slides.filter(`[data-index="${currentIndex + 1}"]`).attr('data-selected', 'yes'); // Select current slide
+            }
+
+            // Function to go to the next image
+            function nextImage() {
+                let newIndex = (currentIndex + 1) % images.length;
+                updateSlideshow(newIndex);
+            }
+
+            // Function to go to the previous image
+            function prevImage() {
+                let newIndex = (currentIndex - 1 + images.length) % images.length;
+                updateSlideshow(newIndex);
+            }
+
+            // Automatic slideshow cycling
+            function startSlideshow() {
+                interval = setInterval(nextImage, 5000);
+            }
+
+            function stopSlideshow() {
+                clearInterval(interval);
+            }
+
+            // Event handlers for controls
+            root.find('.arrow-right').on('click', function () {
+                stopSlideshow();
+                nextImage();
+                startSlideshow();
+            });
+
+            root.find('.arrow-left').on('click', function () {
+                stopSlideshow();
+                prevImage();
+                startSlideshow();
+            });
+
+            slides.on('click', function () {
+                stopSlideshow();
+                const slideIndex = $(this).data('index') - 1; // Convert to zero-based index
+                updateSlideshow(slideIndex);
+                startSlideshow();
+            });
+
+            // Initialize slideshow
+            updateSlideshow(currentIndex);
+            startSlideshow();
+        });
+        </script>
+    </div>
+</div>

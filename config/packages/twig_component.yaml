@@ -1,0 +1,19 @@
+twig_component:
+    anonymous_template_directory: 'twig_ux/'
+    defaults:
+        # Namespace & directory for components
+        App\Views\Components\:
+            template_directory: 'twig_ux/Components/'
+            name_prefix: Components
+        App\Views\Containers\:
+            template_directory: 'twig_ux/Containers/'
+            name_prefix: Containers
+        App\Views\Layouts\:
+            template_directory: 'twig_ux/Layouts/'
+            name_prefix: Layouts
+        App\Views\Pages\:
+            template_directory: 'twig_ux/Pages/'
+            name_prefix: Pages
+        App\Views\Icons\:
+            template_directory: 'twig_ux/Icons/'
+            name_prefix: Icons

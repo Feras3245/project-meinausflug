@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="application-name" content="MeinAusflug">
+        <meta name="author" content="Feras Hennidi">
+        <meta name="description" content="Eine Demo-Webanwendung für ein Reisebüro">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="all">
+        <meta name="view-transition" content="same-origin"/>
+        <title>{% block title %}MeinAusflug{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+        {% block stylesheets %}
+        {% endblock %}
+
+        {% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>
