@@ -1,15 +1,21 @@
 <nav {{attributes}} class="nav-bar">
-        <twig:Components:LogoTitle/>
+        <div class="nav-left">
+                <twig:Components:LogoTitle/>
 
-        <div class="nav-vertical-separator"></div>
-            
-        <twig:Components:SearchBar/>
+                <div class="horizontal-divider"></div>
+                
+                <twig:Components:SearchBar/>
+        </div>
 
-        <twig:Components:NavButton style="margin-left: auto;"><twig:Icons:ThemeIcon/></twig:Components:NavButton>
+        <div class="nav-right">
+                <twig:Components:Button type="primary"><twig:Icons:LoginIcon/>Sign In</twig:Components:Button>
 
-        <twig:Components:Button type="secondary"><twig:Icons:LocaleIcon/>EN</twig:Components:Button>
+                <twig:Components:Button type="secondary"><twig:Icons:LocaleIcon/>EN</twig:Components:Button>
 
-        <twig:Components:Button type="primary"><twig:Icons:LoginIcon/>Login</twig:Components:Button>
+                <twig:Components:Button id="nav-theme-toggler" type="tertiary"><twig:Icons:ThemeIcon/></twig:Components:Button>
 
-        <twig:Components:NavButton id="nav-sidebar-toggler"><twig:Icons:HamburgerIcon/></twig:Components:NavButton>
+                <twig:Components:Button id="nav-sidebar-toggler" type="tertiary"><twig:Icons:HamburgerIcon/></twig:Components:Button>
+        </div>
  </nav>
+
+ 

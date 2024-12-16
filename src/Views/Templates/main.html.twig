@@ -1,44 +1,150 @@
-{% extends 'base.html.twig' %}
+{# {% extends 'base.html.twig' %}
 
 {% block title %}Home{% endblock %}
 
 {% block stylesheets %}
     <link rel="stylesheet" href="{{asset('styles/light-theme.css')}}">
+    <style>
+        header {
+            background-image:url("{{asset('/images/image1.jpg')}}");
+            background-repeat:no-repeat;
+            background-size:cover;
+            background-position:center;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+
+            height: 90vh;
+        }
+    </style>
 {% endblock %}
 
 {% block body %}
-    {# <twig:Containers:NavBar/>
-    <twig:Containers:NavSideBar/>
-    <br><br>
-    <twig:Components:UserActions>
-        <twig:Components:Button type="tertiary"><twig:Icons:FavoriteIcon/></twig:Components:Button>
-        <twig:Components:Button type="tertiary"><twig:Icons:ShareIcon/></twig:Components:Button>
-        <twig:Components:Button type="tertiary"><twig:Icons:HideIcon/></twig:Components:Button>
-        <twig:Components:Button type="tertiary"><twig:Icons:CompareIcon/></twig:Components:Button>
-    </twig:Components:UserActions>
-    <br><br>
-    <twig:Components:ReviewScore score="5"/>
-    <br><br>
-    <twig:Containers:DestinationContainer 
-        uuid="123456"
-        destTitle="Dubai, UAE"
-        subtitle="From desert adventures to thrilling waterparks, Dubai has it all."
-        totalReviews="142"
-        avgScore="4.5"
-        city="Dubai"
-        :images="[
-        asset('images/image1.jpg'),
-        asset('images/image2.jpg'),
-        asset('images/image3.jpg'),
-        asset('images/image4.jpg'),
-        asset('images/image5.jpg')]"
-        description="See the city from above at Skydive Dubai, or brave the edge walk with family and friends to enjoy spectacular views of the Burj Khalifa and the Dubai Fountain. You can also visit an indoor tropical forest with over 3,000 plants and animals at The Green Planet.
 
-                    Dubai's skyline is dotted with architectural marvels and surprising feats of engineering. Start your holiday with a visit to the top of Burj Khalifa, the world's tallest tower, or fast forward in time at the Museum of the Future.
+    <header>
+        <twig:Containers:NavBar/>
+    </header>
+    
 
-                    One of the best places to start your Dubai experience is at Dubai Museum in the historic area by the Dubai Creek. Discover Dubai's pearl diving roots and take a traditional boat ride between the textile, spice and gold souks."
-    /> #}
 
-    {{ phpinfo | raw }}
+    <div style="height:2000px"></div>
+
+{% endblock %} #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/light-theme.css') }}">
+    <style>
+        header {
+            background-repeat:no-repeat;
+            background-size:cover;
+            background-position:center;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+
+
+
+            /* For fade effect */
+            opacity: 1;
+            transition: background-image 1s ease-in-out;
+
+            height: 90vh;
+        }
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+    $(document).ready(function () {
+        const header = $('#dynamic-header');
+        const title = $('#test-location').css({
+            color: '#fff',
+            position: 'absolute',
+            top: '10px',
+            left: '10px',
+            zIndex: '1000',
+        }).appendTo('body'); // Create a title dynamically for displaying location
+
+        const images = {
+            {% for location, imgs in headerImages %}
+                '{{ location }}': [
+                    {% for img in imgs %}
+                        '{{ absolute_url(asset(img)) }}'{{ loop.last ? '' : ',' }}
+                    {% endfor %}
+                ]{{ loop.last ? '' : ',' }}
+            {% endfor %}
+        };
+
+        let currentLocation = null;
+
+        function changeBackground() {
+            // Get random location
+            const locations = Object.keys(images);
+            let randomLocation;
+            do {
+                randomLocation = locations[Math.floor(Math.random() * locations.length)];
+            } while (randomLocation === currentLocation); // Avoid repeating the same location consecutively
+
+            currentLocation = randomLocation;
+
+            // Get a random image for the selected location
+            const randomImage = images[currentLocation][Math.floor(Math.random() * images[currentLocation].length)];
+
+            // Update header background image
+            header.css('background-image', `url(${randomImage})`);
+
+            // Update location title
+            title.text(currentLocation);
+        }
+
+        // Set the initial background image and location
+        changeBackground();
+
+        // Change the background and title every 5 seconds
+        setInterval(changeBackground, 5000);
+    });
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('header');
+    const navBar = document.querySelector('.nav-bar');
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                document.body.classList.add('scrolled-past-header');
+            } else {
+                document.body.classList.remove('scrolled-past-header');
+            }
+        });
+    }, observerOptions);
+
+    observer.observe(header);
+});
+</script>
+{% endblock %}
+
+{% block body %}
+
+    <header id="dynamic-header">
+        <twig:Containers:NavBar/>
+        <h2 id="test-location"><h2/>
+    </header>
+
+    <div style="height: 2000px;"></div>
+
 
 {% endblock %}
