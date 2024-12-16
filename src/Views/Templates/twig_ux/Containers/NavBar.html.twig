@@ -8,6 +8,7 @@
         </div>
 
         <div class="nav-right">
+                <twig:Components:LogoTitle id="mobile-logo-title"/>
                 <twig:Components:Button type="primary"><twig:Icons:LoginIcon/>Sign In</twig:Components:Button>
 
                 <twig:Components:Button type="secondary"><twig:Icons:LocaleIcon/>EN</twig:Components:Button>
@@ -16,6 +17,69 @@
 
                 <twig:Components:Button id="nav-sidebar-toggler" type="tertiary"><twig:Icons:HamburgerIcon/></twig:Components:Button>
         </div>
- </nav>
+        <twig:Containers:SideMenu/>
 
+        <script>
+                $(document).ready(function() {
+                // Function to set side menu width exactly to nav-right
+                function setSideMenuWidth() {
+                        const navRight = $('.nav-right');
+                        const sideMenu = $('#side-menu');
+                        sideMenu.width(navRight.outerWidth());
+                }
+
+                // Set width on load and window resize
+                setSideMenuWidth();
+                $(window).resize(setSideMenuWidth);
+
+                // Toggle side menu with jQuery UI slide effect
+                $('#nav-sidebar-toggler').on('click', function(e) {
+                        e.stopPropagation();
+                        if ($('#side-menu').is(':visible')) {
+                        $('#side-menu').hide('fade', {  }, 300);
+                        } else {
+                        setSideMenuWidth(); // Ensure width is correct before showing
+                        $('#side-menu').css("display", "flex").css("marginRight", $('.nav-bar').css("padding-right")).show('fade', {  }, 300);
+                        }
+                });
+
+                // Close side menu when clicking outside
+                $(document).on('click', function(e) {
+                        if ($('#side-menu').is(':visible') && 
+                        !$(e.target).closest('#side-menu, #nav-sidebar-toggler').length) {
+                        $('#side-menu').hide('fade', { }, 300);
+                        }
+                });
+
+                // Close menu on ESC key
+                $(document).on('keydown', function(e) {
+                        if (e.key === 'Escape' && $('#side-menu').is(':visible')) {
+                        $('#side-menu').hide('fade', {  }, 300);
+                        }
+                });
+                });
+
+                {# $(document).ready(function() {
+                $('#nav-sidebar-toggler').on('click', function(e) {
+                        e.stopPropagation();
+                        $('#side-menu').toggleClass('active');
+                });
+
+                // Close side menu when clicking outside
+                $(document).on('click', function(e) {
+                        if ($('#side-menu').hasClass('active') && 
+                        !$(e.target).closest('#side-menu, #nav-sidebar-toggler').length) {
+                        $('#side-menu').removeClass('active');
+                        }
+                });
+
+                // Close menu on ESC key
+                $(document).on('keydown', function(e) {
+                        if (e.key === 'Escape' && $('#side-menu').hasClass('active')) {
+                        $('#side-menu').removeClass('active');
+                        }
+                });
+                }); #}
+                </script>
+ </nav>
  

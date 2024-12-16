@@ -1,0 +1,115 @@
+{# <div{{attributes}} class="side-menu" id="side-menu">
+    <div class="sidemenu-section">
+        <h4 class="sidemenu-section-title">Travel Options</h4>
+        <ul class="sidemenu-section-content">
+            <li class="sidemenu-section-item">Day Trips</li>
+            <li class="sidemenu-section-item">Weekend Getaways</li>
+            <li class="sidemenu-section-item">Adventure Tours</li>
+        </ul>
+    </div>
+    <div class="sidemenu-section">
+        <h4 class="sidemenu-section-title">Destinations</h4>
+        <ul class="sidemenu-section-content">
+            <li class="sidemenu-section-item">Mountains</li>
+            <li class="sidemenu-section-item">Beaches</li>
+            <li class="sidemenu-section-item">Cities</li>
+        </ul>
+    </div>
+    <div class="sidemenu-section">
+        <h4 class="sidemenu-section-title">Account</h4>
+        <ul class="sidemenu-section-content">
+            <li class="sidemenu-section-item">Profile</li>
+            <li class="sidemenu-section-item">Bookings</li>
+            <li class="sidemenu-section-item">Settings</li>
+        </ul>
+    </div>
+</div> #}
+
+<div class="side-menu" id="side-menu">
+<div class="sidemenu-section">
+    <h4 class="sidemenu-section-title"><twig:Icons:PlaneIcon/>Travel Options</h4>
+    <ul class="sidemenu-section-content">
+        <li class="sidemenu-section-item">
+            <a class="button-tertiary"><twig:Icons:MembershipIcon/> Ausflug+ Membership Card</a>
+        </li>
+        <li class="sidemenu-section-item">
+            <a class="button-tertiary"><twig:Icons:DiscountIcon/>Seasonal Exclusives</a>
+        </li>
+        <li class="sidemenu-section-item">
+            <a class="button-tertiary"><twig:Icons:BackpackIcon/> Adventure Planner</a>
+        </li>
+    </ul>
+</div>
+<div class="sidemenu-section">
+    <h4 class="sidemenu-section-title"><twig:Icons:DestinationMapIcon/>Destinations</h4>
+    <ul class="sidemenu-section-content">
+        <li class="sidemenu-section-item">
+            <a class="button-tertiary"><twig:Icons:ExploreIcon/> Explore Now</a>
+        </li>
+        <li class="sidemenu-section-item">
+            <a class="button-tertiary"><twig:Icons:FavoriteIcon/> Favorites</a>
+        </li>
+        <li class="sidemenu-section-item">
+            <a class="button-tertiary"><twig:Icons:FullStarIcon/> My Reviews</a>
+        </li>
+    </ul>
+</div>
+<div class="sidemenu-section">
+    <h4 class="sidemenu-section-title"><twig:Icons:AccountIcon/>Account</h4>
+    <ul class="sidemenu-section-content">
+        <li class="sidemenu-section-item">
+            <a class="button-tertiary"><twig:Icons:EditIcon/> Edit Profile</a>
+        </li>
+        <li class="sidemenu-section-item">
+            <a class="button-tertiary"><twig:Icons:PlaneTicketsIcon/> Bookings</a>
+        </li>
+        <li class="sidemenu-section-item">
+            <a class="button-tertiary"><twig:Icons:SettingsIcon/>Settings</a>
+        </li>
+    </ul>
+</div>
+<script>
+    function ensureBottomScroll(menuElement) {
+        // Use requestAnimationFrame to ensure the DOM is fully updated
+        requestAnimationFrame(() => {
+            // Ensure the menu is scrolled to the bottom
+            menuElement.scrollTop = menuElement.scrollHeight;
+        });
+    }
+
+    // Optional: Create a mutation observer to handle dynamic content changes
+    function setupSideMenuScrolling(menuElement) {
+        // Initial scroll to bottom
+        ensureBottomScroll(menuElement);
+
+        // Create a MutationObserver to watch for content changes
+        const observer = new MutationObserver((mutations) => {
+            // Check if the mutations affect the menu's content
+            const contentChanged = mutations.some(mutation => 
+                mutation.type === 'childList' || 
+                mutation.type === 'characterData'
+            );
+
+            if (contentChanged) {
+                ensureBottomScroll(menuElement);
+            }
+        });
+
+        // Configure the observer to watch for child additions, removals, and text changes
+        observer.observe(menuElement, {
+            childList: true,      // Observe direct children
+            subtree: true,        // Observe all descendants
+            characterData: true   // Observe text content changes
+        });
+
+        return observer;
+    }
+
+    // Usage example
+    const sideMenu = document.querySelector('.side-menu');
+    const menuObserver = setupSideMenuScrolling(sideMenu);
+
+    // Optional: Disconnect observer when no longer needed
+    // menuObserver.disconnect();
+</script>
+</div>

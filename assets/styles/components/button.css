@@ -1,0 +1,172 @@
+.button-primary {
+	--size: clamp(1rem, 0.948rem + 0.258vw, 1.25rem);
+
+	& {
+		all: unset;
+		padding: 10px 20px;
+		color: white;
+		background-color: #FF5900;
+		border-radius: 1000px;
+		user-select: none;
+		cursor: pointer;
+
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+
+		white-space: nowrap;
+
+		font-weight: 500;
+		font-size: var(--size);
+
+		/* Subtle shadow and transition for smooth animations */
+		box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+		transition: transform 200ms ease, box-shadow 200ms ease, all 200ms ease;
+	}
+
+	&:hover {
+		/* Scale up slightly and enhance the gradient */
+		background: linear-gradient(135deg, #FF762C, #FF8F4A);
+		box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+	}
+
+	&:active {
+		/* Pressed effect with an inset shadow and slight scale down */
+		background: linear-gradient(135deg, #FF5900, #FF762C);
+		transform: scale(0.97);
+		box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.2);
+		color: #ffffff;
+	}
+
+	&>svg {
+		overflow: visible;
+		height: calc(var(--size) * 1.5);
+
+		/* Add subtle transition for icons */
+		transition: transform 200ms ease;
+	}
+
+	&:hover>svg {
+		/* Animate the icon slightly on hover */
+		transform: scale(1.1);
+	}
+
+	&:active>svg {
+		transform: scale(0.95);
+	}
+}
+
+.button-secondary {
+	--size: clamp(1rem, 0.948rem + 0.258vw, 1.25rem);
+
+	& {
+		all: unset;
+		padding: 10px 20px;
+		color: #FF5900;
+		border-radius: 1000px;
+		user-select: none;
+		cursor: pointer;
+		box-shadow: inset 0px 0px 0px 2px #FF5900;
+		display: inline-flex;
+		align-items: center;
+		align-content: center;
+		gap: 10px;
+
+		white-space: nowrap;
+
+		font-weight: 500;
+		font-size: var(--size);
+
+		/* Improved transitions */
+		transition:
+			color 300ms ease-in-out,
+			box-shadow 300ms ease-in-out,
+			transform 200ms ease-in-out,
+			background-color 300ms ease-in-out;
+	}
+
+	&:hover {
+		color: #ffffff;
+		background-color: #FF5900;
+		box-shadow: 0px 0px 8px 2px rgba(255, 89, 0, 0.5), inset 0px 0px 0px 1px #FF5900;
+		transform: translateY(-3px);
+	}
+
+	&:active {
+		transform: scale(0.95);
+		background-color: #FF5900;
+		/* box-shadow: inset 0px 0px 0px 2px #ffffff, 0px 0px 5px rgba(255, 255, 255, 0.3); */
+		box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.2);
+		/* color: #ffffff; */
+	}
+
+	&>svg {
+		height: calc(var(--size) * 1.5);
+		transition: transform 200ms ease-in-out;
+		overflow: visible;
+	}
+
+	&:hover>svg {
+		transform: scale(1.1);
+	}
+}
+
+.button-tertiary {
+	--size: clamp(1rem, 0.948rem + 0.258vw, 1.25rem);
+
+	& {
+		all: unset;
+		padding: 10px 20px;
+		align-self: stretch;
+
+		color: #252525;
+		user-select: none;
+		cursor: pointer;
+
+		display: inline-flex;
+		align-items: center;
+		align-content: center;
+		gap: 10px;
+
+		white-space: nowrap;
+
+		font-weight: 500;
+		font-size: var(--size);
+
+		/* Subtle transition for text and background */
+		transition:
+			color 200ms ease-in-out,
+			background-color 200ms ease-in-out,
+			transform 200ms ease-in-out;
+	}
+
+	&:hover {
+		color: #FF5900;
+		background-color: rgba(255, 89, 0, 0.1);
+		/* Light orange tint */
+		transform: translateY(-2px);
+
+		&>svg {
+			color: #FF5900;
+		}
+	}
+
+	&:active {
+		color: #ffffff;
+		background-color: #FF5900;
+		box-shadow: inset 0px 0px 0px 2px #ff5900;
+		transform: scale(0.97);
+
+		&>svg {
+			color: white;
+		}
+	}
+
+	&>svg {
+		height: calc(var(--size) * 1.5);
+		transition: transform 200ms ease-in-out, color 200ms ease-in-out;
+		color: #343434;
+		overflow: visible;
+	}
+}

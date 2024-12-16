@@ -1,0 +1,29 @@
+.logo-title {
+	--size: clamp(1.25rem, 1.121rem + 0.644vw, 1.875rem);
+
+	& {
+		display: inline-flex;
+		flex-flow: row nowrap;
+		gap: 5px;
+
+		justify-content: center;
+		align-items: center;
+		color: #FF5900;
+		font-size: var(--size);
+	}
+
+
+	&>svg {
+		overflow: visible;
+		width: calc(var(--size) * 2);
+	}
+
+	&>span {
+		font-weight: 600;
+	}
+
+	&>span>strong {
+		font-weight: 900;
+		color: white;
+	}
+}

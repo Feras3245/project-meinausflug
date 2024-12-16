@@ -1,0 +1,104 @@
+search {
+	--size: clamp(1rem, 0.948rem + 0.258vw, 1.25rem);
+	--search-max-width: 30ch;
+	--search-min-width: 15ch;
+
+	padding: 5px 10px;
+	display: inline-flex;
+	flex-flow: row nowrap;
+	white-space: nowrap;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 10px;
+	color: #ffffff;
+	border-radius: 1000px;
+	transition: all 200ms;
+	border: 2px solid transparent;
+}
+
+search>input {
+	border: unset;
+	visibility: hidden;
+	background-color: transparent;
+	max-width: var(--search-max-width);
+	min-width: var(--search-min-width);
+	width: 100%;
+	flex: 1 1 auto;
+	font-size: var(--size);
+	transition: visibility 200ms, width 200ms;
+	outline: hidden;
+}
+
+search>input::placeholder {
+	color: white;
+}
+
+search:hover {
+	border-color: #ffffff;
+
+	&>input {
+		visibility: visible;
+	}
+
+	&>.button-secondary {
+		color: white;
+		background-color: unset;
+		visibility: visible;
+	}
+}
+
+/* Visibility and Focus States */
+search:has(input:focus),
+search:has(.button-secondary:focus) {
+	border: 2px solid #FF5900;
+	border-radius: 500px;
+	transition: all 200ms;
+}
+
+search>input:focus {
+	visibility: visible;
+	outline: none;
+}
+
+search>input,
+search>.button-secondary {
+	transition: visibility 200ms;
+}
+
+search>label>svg {
+	height: calc(var(--size) * 1.25);
+	transition: color 200ms;
+}
+
+search:has(input:focus)>label>svg,
+search:has(input:focus)>.button-secondary {
+	color: #FF5900;
+}
+
+search>.button-secondary {
+	all: unset;
+	border-radius: 1000px;
+	padding: 10px;
+	color: white;
+	visibility: hidden;
+	user-select: none;
+	cursor: pointer;
+	background-color: unset;
+	transition: background-color 200ms, visibility 200ms;
+}
+
+search>.button-secondary>svg {
+	height: calc(var(--size) * 0.8);
+	margin: 0 auto;
+	vertical-align: middle;
+}
+
+search:hover>.button-secondary {
+	visibility: visible;
+	color: white;
+}
+
+search:hover>.button-secondary:hover {
+	color: #FF5900;
+	box-shadow: inset 0px 0px 0px 1px #FF5900;
+}

@@ -3,13 +3,38 @@
 {% block title %}Home{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('styles/light-theme.css') }}">
+    {# <link rel="stylesheet" href="{{ asset('styles/light-theme.css') }}"> #}
+    <link rel="stylesheet" href="{{ asset('styles/reset.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/components/button.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/components/logo-title.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/components/search-bar.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/containers/nav-bar.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/containers/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/containers/sidemenu-new.css') }}">
     <style>
 
     </style>
 {% endblock %}
 
 {% block javascripts %}
+
+{# document.addEventListener('DOMContentLoaded', () => {
+    const styles = [
+        '/assets/styles/components/button.css',
+        '/assets/styles/components/logo-title.css',
+        '/assets/styles/components/search-bar.css',
+        '/assets/styles/containers/header.css',
+        '/assets/styles/containers/nav-bar.css',
+        '/assets/styles/containers/sidemenu.css'
+    ];
+
+    styles.forEach(stylePath => {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = stylePath; // Set the href to the CSS path
+        document.head.appendChild(link); // Append the <link> to the <head> section
+    });
+}); #}
  
 {# <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -39,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 {% block body %}
 
-    <twig:Components:LogoTitle direction="column" id="mobile-logo-title"/>
+    {# <twig:Components:LogoTitle id="mobile-logo-title"/> #}
     <twig:Containers:Header :headerImages="header"/>
     <twig:Containers:NavBar/>
 
@@ -47,3 +72,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 {% endblock %}
+
+
+{# <nav class="nav-bar">
+        <div class="nav-left">
+        <a href="https://meinausflug.de/" class="logo-title">
+            <twig:Icons:LogoIcon />
+            <span class="title"><strong>Mein</strong>Ausflug</span>
+        </a>
+
+                <div class="horizontal-divider"></div>
+                
+        <search {{attributes}}>
+            <label for="search-field"><twig:Icons:SearchIcon/></label>
+            <input autocomplete="off" placeholder="Search..." maxLength={150} spellCheck={false} type="search" id="search-field" name="search-field"/>
+            <a class="button-secondary"><twig:Icons:GoIcon/></a>
+        </search>
+        </div>
+
+        <div class="nav-right">
+                <a class="button-primary"><twig:Icons:LoginIcon/>Sign In</a>
+                <a class="button-secondary"><twig:Icons:LocaleIcon/>EN</a>
+                <a class="button-tertiary" id="nav-theme-toggler" ><twig:Icons:ThemeIcon/></a>
+                <a class="button-tertiary" id="nav-sidebar-toggler"><twig:Icons:ThemeIcon/><twig:Icons:HamburgerIcon/></a>
+        </div>
+ </nav> #}
