@@ -1,0 +1,115 @@
+{# <header {{attributes}} id="dynamic-header">
+    <div class="header-message-container">
+        <h2>Take A Vacation</h2>
+        <p>simply and comfortably</p>
+    </div>
+    <twig:Components:Button href="destination view link (must be dynamic)" type="primary">Explore <span id="current-location"><span/></twig:Components:Button>
+</header>
+<script>
+    $(document).ready(function () {
+        const header = $('#dynamic-header');
+        const title = $('#current-location').css({
+            color: '#fff',
+            position: 'absolute',
+            top: '10px',
+            left: '10px',
+            zIndex: '1000',
+        }).appendTo('body'); // Create a title dynamically for displaying location
+
+        const images = {
+            {% for location, imgs in this.headerImages %}
+                '{{ location }}': [
+                    {% for img in imgs %}
+                        '{{ absolute_url(asset(img)) }}'{{ loop.last ? '' : ',' }}
+                    {% endfor %}
+                ]{{ loop.last ? '' : ',' }}
+            {% endfor %}
+        };
+
+        let currentLocation = null;
+
+        function changeBackground() {
+            // Get random location
+            const locations = Object.keys(images);
+            let randomLocation;
+            do {
+                randomLocation = locations[Math.floor(Math.random() * locations.length)];
+            } while (randomLocation === currentLocation); // Avoid repeating the same location consecutively
+
+            currentLocation = randomLocation;
+
+            // Get a random image for the selected location
+            const randomImage = images[currentLocation][Math.floor(Math.random() * images[currentLocation].length)];
+
+            // Update header background image
+            header.css('background-image', `url(${randomImage})`);
+
+            // Update location title
+            title.text(currentLocation);
+        }
+
+        // Set the initial background image and location
+        changeBackground();
+
+        // Change the background and title every 5 seconds
+        setInterval(changeBackground, 5000);
+    });
+</script> #}
+
+<header {{ attributes }} id="dynamic-header">
+    <div class="header-message-container">
+        <h2>Make <strong>A Vacation</strong></h2>
+        <p>simply &#38; comfortably</p>
+    </div>
+    <twig:Components:Button id="explore-button" href="#" type="primary">
+        <twig:Icons:ExploreIcon/>
+        Explore&nbsp;<span id="current-location"></span>
+    </twig:Components:Button>
+</header>
+
+<script>
+    $(document).ready(function () {
+        const header = $('#dynamic-header');
+        const exploreButton = $('#explore-button');
+        const locationSpan = $('#current-location');
+
+        const images = {
+            {% for location, imgs in this.headerImages %}
+                '{{ location }}': [
+                    {% for img in imgs %}
+                        '{{ absolute_url(asset(img)) }}'{{ loop.last ? '' : ',' }}
+                    {% endfor %}
+                ]{{ loop.last ? '' : ',' }}
+            {% endfor %}
+        };
+
+        let currentLocation = null;
+
+        function changeBackground() {
+            // Get random location
+            const locations = Object.keys(images);
+            let randomLocation;
+            do {
+                randomLocation = locations[Math.floor(Math.random() * locations.length)];
+            } while (randomLocation === currentLocation); // Avoid repeating the same location consecutively
+
+            currentLocation = randomLocation;
+
+            // Get a random image for the selected location
+            const randomImage = images[currentLocation][Math.floor(Math.random() * images[currentLocation].length)];
+
+            // Update header background image
+            header.css('background-image', `url(${randomImage})`);
+
+            // Update location title and button href
+            locationSpan.text(currentLocation);
+            exploreButton.attr('href', `/destination/${currentLocation}`);
+        }
+
+        // Set the initial background image and location
+        changeBackground();
+
+        // Change the background and title every 5 seconds
+        setInterval(changeBackground, 5000);
+    });
+</script>

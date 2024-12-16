@@ -5,81 +5,12 @@
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('styles/light-theme.css') }}">
     <style>
-        header {
-            background-repeat:no-repeat;
-            background-size:cover;
-            background-position:center;
 
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-
-
-
-            /* For fade effect */
-            opacity: 1;
-            transition: background-image 1s ease-in-out;
-
-            height: 100vh;
-
-            margin: 3vw 3vw 2vw 3vw;
-            border-radius: 30px;
-        }
     </style>
 {% endblock %}
 
 {% block javascripts %}
-    <script>
-    $(document).ready(function () {
-        const header = $('#dynamic-header');
-        const title = $('#test-location').css({
-            color: '#fff',
-            position: 'absolute',
-            top: '10px',
-            left: '10px',
-            zIndex: '1000',
-        }).appendTo('body'); // Create a title dynamically for displaying location
-
-        const images = {
-            {% for location, imgs in headerImages %}
-                '{{ location }}': [
-                    {% for img in imgs %}
-                        '{{ absolute_url(asset(img)) }}'{{ loop.last ? '' : ',' }}
-                    {% endfor %}
-                ]{{ loop.last ? '' : ',' }}
-            {% endfor %}
-        };
-
-        let currentLocation = null;
-
-        function changeBackground() {
-            // Get random location
-            const locations = Object.keys(images);
-            let randomLocation;
-            do {
-                randomLocation = locations[Math.floor(Math.random() * locations.length)];
-            } while (randomLocation === currentLocation); // Avoid repeating the same location consecutively
-
-            currentLocation = randomLocation;
-
-            // Get a random image for the selected location
-            const randomImage = images[currentLocation][Math.floor(Math.random() * images[currentLocation].length)];
-
-            // Update header background image
-            header.css('background-image', `url(${randomImage})`);
-
-            // Update location title
-            title.text(currentLocation);
-        }
-
-        // Set the initial background image and location
-        changeBackground();
-
-        // Change the background and title every 5 seconds
-        setInterval(changeBackground, 5000);
-    });
-</script>
-
+ 
 {# <script>
 document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('header');
@@ -108,10 +39,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 {% block body %}
 
-    <header id="dynamic-header">
-        <h2 id="test-location"><h2/>
-    </header>
-
+    <twig:Components:LogoTitle direction="column" id="mobile-logo-title"/>
+    <twig:Containers:Header :headerImages="header"/>
     <twig:Containers:NavBar/>
 
     <div style="height: 2000px;"></div>

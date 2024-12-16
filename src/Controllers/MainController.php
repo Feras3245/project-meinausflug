@@ -59,7 +59,7 @@ class MainController extends AbstractController {
         }
 
         return $this->render('main.html.twig', [
-            'headerImages' => $headerImages,
+            'header' => $headerImages,
         ]);
     }
 }
