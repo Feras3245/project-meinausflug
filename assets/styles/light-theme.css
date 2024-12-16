@@ -519,7 +519,7 @@ search:hover>.button-secondary:hover {
 	}
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 440px) {
 	nav {
 		padding: 5px;
 	}
@@ -554,9 +554,10 @@ search:hover>.button-secondary:hover {
 
 
 .nav-bar {
-	position: sticky;
+	position: fixed;
 	top: 0;
 	transition: position 0.3s ease;
+	height: fit-content;
 }
 
 /* When scrolled past header, nav becomes sticky */

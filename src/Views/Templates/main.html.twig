@@ -1,37 +1,3 @@
-{# {% extends 'base.html.twig' %}
-
-{% block title %}Home{% endblock %}
-
-{% block stylesheets %}
-    <link rel="stylesheet" href="{{asset('styles/light-theme.css')}}">
-    <style>
-        header {
-            background-image:url("{{asset('/images/image1.jpg')}}");
-            background-repeat:no-repeat;
-            background-size:cover;
-            background-position:center;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-
-            height: 90vh;
-        }
-    </style>
-{% endblock %}
-
-{% block body %}
-
-    <header>
-        <twig:Containers:NavBar/>
-    </header>
-    
-
-
-    <div style="height:2000px"></div>
-
-{% endblock %} #}
-
 {% extends 'base.html.twig' %}
 
 {% block title %}Home{% endblock %}
@@ -54,7 +20,10 @@
             opacity: 1;
             transition: background-image 1s ease-in-out;
 
-            height: 90vh;
+            height: 100vh;
+
+            margin: 3vw 3vw 2vw 3vw;
+            border-radius: 30px;
         }
     </style>
 {% endblock %}
@@ -111,7 +80,7 @@
     });
 </script>
 
-<script>
+{# <script>
 document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('header');
     const navBar = document.querySelector('.nav-bar');
@@ -134,15 +103,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     observer.observe(header);
 });
-</script>
+</script> #}
 {% endblock %}
 
 {% block body %}
 
     <header id="dynamic-header">
-        <twig:Containers:NavBar/>
         <h2 id="test-location"><h2/>
     </header>
+
+    <twig:Containers:NavBar/>
 
     <div style="height: 2000px;"></div>
 
