@@ -11,31 +11,17 @@ use Symfony\Component\Finder\Finder;
 
 class MainController extends AbstractController {
 
-    #[Route('/')]
-    public function index(TranslatorInterface $translator): Response {
-        // return $this->render('main.html.twig');
-        ob_start();
-        phpinfo();
-        $phpinfo = ob_get_clean();
+    // #[Route('/')]
+    // public function index(TranslatorInterface $translator): Response {
+    //     // return $this->render('main.html.twig');
+    //     ob_start();
+    //     phpinfo();
+    //     $phpinfo = ob_get_clean();
 
-        return $this->render('main.html.twig', array('phpinfo' => $phpinfo));
-    }
-
-    // #[Route('/test')]
-    //     public function test(): Response
-    // {
-    //     $headerImages = [
-    //         '/images/image1.jpg',
-    //         '/images/image2.jpg',
-    //         '/images/image3.jpg',
-    //         // Add more image paths as required
-    //     ];
-
-    //     return $this->render('main.html.twig', [
-    //         'headerImages' => $headerImages,
-    //     ]);
+    //     return $this->render('main.html.twig', array('phpinfo' => $phpinfo));
     // }
-    #[Route('/test', name: 'test')]
+
+    #[Route('/', name: 'index')]
     public function test(): Response
     {
         $baseDir = $this->getParameter('kernel.project_dir') . '/assets/images/header';
