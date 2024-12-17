@@ -7,5 +7,5 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent]
 class ReviewScore
 {
-    public $score = 0;
+    public float $score = 0;
 }

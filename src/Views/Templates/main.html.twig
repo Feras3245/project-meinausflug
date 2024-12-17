@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="{{ asset('styles/containers/nav-bar.css') }}">
     <link rel="stylesheet" href="{{ asset('styles/containers/header.css') }}">
     <link rel="stylesheet" href="{{ asset('styles/containers/sidemenu-new.css') }}">
+    <link rel="stylesheet" href="{{ asset('/styles/components/review-score.css') }}">
+    <link rel="stylesheet" href="{{ asset('/styles/components/icon-button.css') }}">
+    <link rel="stylesheet" href="{{ asset('/styles/components/slideshow.css') }}">
+    <link rel="stylesheet" href="{{ asset('/styles/containers/destination.css') }}">
     <style>
 
     </style>
@@ -26,7 +30,62 @@
     <twig:Containers:Header :headerImages="header"/>
     <twig:Containers:NavBar/>
 
+    {# <div {{attributes}} id="destination-card-{{id}}" class="destination-card-root">
+        <h3 class="title">{{this.destination.city}}, {{this.destination.country}}</h3>
+        <p class="subtitle">{{this.destination.subtitle}}</p>
+        <twig:Components:Slideshow id="{{id}}" :images="destinationImages" class="slideshow"></twig:Components:Slideshow>
+        <div class="user-actions">actions menu</div>
+        <div class="average-reviews"><p>{{this.destination.reviewsCount}} Reviews</p><twig:Components:ReviewScore score={{this.destination.ReviewAvg}}/></div>
+        <h4 class="about-title">About {{this.destination.city}}</h4>
+        <p class="description">{{this.destination.description}}</p>
+    </div> #}
+
+    <div id="destination-card-1" class="destination-card-root">
+        <h3 class="title">Dubai, UAE</h3>
+        <p class="subtitle">From desert adventures to thrilling waterparks, Dubai has it all.</p>
+        <twig:Components:SlideShow id="1" :images="destinationImages"/>
+        <twig:Components:UserActions/>
+        <div class="average-reviews">
+            <p>7 Reviews</p>
+            <twig:Components:ReviewScore :score="5.0"/>
+        </div>
+        <h4 class="about-title">About Dubai</h4>
+        <p class="description">
+            See the city from above at Skydive Dubai, or brave the edge walk with family and friends to enjoy spectacular views of the Burj Khalifa and the Dubai Fountain. You can also visit an indoor tropical forest with over 3,000 plants and animals at The Green Planet.
+
+Dubai's skyline is dotted with architectural marvels and surprising feats of engineering. Start your holiday with a visit to the top of Burj Khalifa, the world's tallest tower, or fast forward in time at the Museum of the Future.
+
+One of the best places to start your Dubai experience is at Dubai Museum in the historic area by the Dubai Creek. Discover Dubai's pearl diving roots and take a traditional boat ride between the textile, spice and gold souks.
+ 
+        </p>
+    
+    <twig:Components:Button type="primary"><twig:Icons:ExploreIcon/>Explore Now</twig:Components:Button>
+    </div>
+{# 
+    <twig:Containers:DestinationContainer destID="1" 
+        destTitle="Dubai, UAE"
+        subtitle="From desert adventures to thrilling waterparks, Dubai has it all."
+        :images="destinationImages"
+        totalReviews="82"
+        avgScore="4.2"
+        city="Dubai"
+        description="See the city from above at Skydive Dubai, or brave the edge walk with family and friends to enjoy spectacular views of the Burj Khalifa and the Dubai Fountain. You can also visit an indoor tropical forest with over 3,000 plants and animals at The Green Planet.
+
+Dubai's skyline is dotted with architectural marvels and surprising feats of engineering. Start your holiday with a visit to the top of Burj Khalifa, the world's tallest tower, or fast forward in time at the Museum of the Future.
+
+One of the best places to start your Dubai experience is at Dubai Museum in the historic area by the Dubai Creek. Discover Dubai's pearl diving roots and take a traditional boat ride between the textile, spice and gold souks.
+ "/> #}
+
+    {# <br><br>
+    <twig:Components:ReviewScore score="5.0"/>
+    <twig:Components:SlideShow id="1" :images="destinationImages"/> #}
+
     <div style="height: 2000px;"></div>
-
-
 {% endblock %}
+
+{# See the city from above at Skydive Dubai, or brave the edge walk with family and friends to enjoy spectacular views of the Burj Khalifa and the Dubai Fountain. You can also visit an indoor tropical forest with over 3,000 plants and animals at The Green Planet.
+
+Dubai's skyline is dotted with architectural marvels and surprising feats of engineering. Start your holiday with a visit to the top of Burj Khalifa, the world's tallest tower, or fast forward in time at the Museum of the Future.
+
+One of the best places to start your Dubai experience is at Dubai Museum in the historic area by the Dubai Creek. Discover Dubai's pearl diving roots and take a traditional boat ride between the textile, spice and gold souks.
+ #}

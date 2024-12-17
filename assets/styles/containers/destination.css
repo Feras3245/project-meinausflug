@@ -1,0 +1,382 @@
+
+
+/* .destination-card-root {
+    display: grid;
+    grid-template-columns: 
+        minmax(250px, 50%) 
+        minmax(150px, 1fr) 
+        minmax(150px, 1fr);
+    grid-template-rows: 
+        auto 
+        auto 
+        auto 
+        minmax(50px, 10%);
+    grid-column-gap: 20px;
+    grid-row-gap: 10px;
+
+    justify-items: stretch;
+    align-items: start;
+
+    padding: 30px;
+    box-sizing: border-box;
+
+    width: 90vw;
+    max-width: 1200px;
+
+    border-radius: 20px;
+    background-color: white;
+    margin: auto;
+}
+    
+.destination-card-root .title { 
+    font-size: 64px;
+    font-weight: 900;
+}
+.destination-card-root .subtitle { 
+    grid-column-start: 1;
+    grid-row-start: 2;
+    font-size: 32px;
+    font-weight: 200;
+}
+.destination-card-root .slideshow {
+    grid-row: span 2 / span 2;
+    grid-column-start: 1;
+    grid-row-start: 3;
+
+    width: 100%;
+    height: 600px;
+}
+.destination-card-root .user-actions { 
+    grid-column-start: 2;
+    grid-row-start: 1;
+
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-self: flex-end;
+
+    gap: 10px;
+
+    &>.user-action {
+        border-radius: 5px;
+    }
+}
+.destination-card-root .average-reviews { 
+    grid-column-start: 3;
+    grid-row-start: 1;
+
+    align-self: end;
+    justify-self: end;
+
+    display: inline-flex;
+    flex-flow: column nowrap;
+    text-align: right;
+
+    &>p {
+        margin-right: 20px;
+    }
+}
+.destination-card-root .about-title { 
+    grid-column: span 2 / span 2;
+    grid-column-start: 2;
+    grid-row-start: 2;
+
+    font-size: 48px;
+    font-weight: 700;
+}
+.destination-card-root .description { 
+    grid-column: span 2 / span 2;
+    grid-row-start: 3;
+
+    max-height: 500px;
+    font-size: 22px;
+    line-height: 2.5rem;
+    overflow-y: auto;
+
+}
+.destination-card-root > .button-primary {
+    grid-column: span 2 / span 2;
+    grid-column-start: 2;
+    grid-row-start: 4;
+
+    align-self: start;
+    justify-self: center;
+
+    --size: 2rem;
+    padding: 1rem 2rem;
+} */
+
+
+
+/* .destination-card-root {
+    display: grid;
+    grid-template-columns: 
+        minmax(250px, 50%) 
+        minmax(150px, 1fr) 
+        minmax(150px, 1fr);
+    grid-template-rows: 
+        auto 
+        auto 
+        auto 
+        minmax(50px, 10%);
+    grid-column-gap: 20px;
+    grid-row-gap: 10px;
+
+    justify-items: stretch;
+    align-items: start;
+
+    padding: 30px;
+    box-sizing: border-box;
+
+    width: 90vw;
+    max-width: 1200px;
+
+    border-radius: 20px;
+    background-color: white;
+    margin: auto;
+}
+    
+.destination-card-root .title { 
+    font-size: 36px;
+    font-weight: 900;
+}
+.destination-card-root .subtitle { 
+    grid-column-start: 1;
+    grid-row-start: 2;
+    font-size: 20px;
+    font-weight: 200;
+}
+.destination-card-root .slideshow {
+    grid-row: span 2 / span 2;
+    grid-column-start: 1;
+    grid-row-start: 3;
+
+    width: 100%;
+    height: 600px;
+}
+.destination-card-root .user-actions { 
+    grid-column-start: 2;
+    grid-row-start: 1;
+
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-self: flex-end;
+
+    gap: 10px;
+
+    &>.user-action {
+        border-radius: 5px;
+        --size: 0.7rem;
+        padding: 10px 10px;
+    }
+}
+.destination-card-root .average-reviews { 
+    grid-column-start: 3;
+    grid-row-start: 1;
+
+    align-self: end;
+    justify-self: end;
+
+    display: inline-flex;
+    flex-flow: column nowrap;
+    text-align: right;
+
+    &>p {
+        margin-right: 11px;
+    }
+
+    .review-score{
+        --size: 1rem;
+    }
+
+
+}
+.destination-card-root .about-title { 
+    grid-column: span 2 / span 2;
+    grid-column-start: 2;
+    grid-row-start: 2;
+
+    font-size: 25px;
+    font-weight: 700;
+}
+.destination-card-root .description { 
+    grid-column: span 2 / span 2;
+    grid-row-start: 3;
+
+    max-height: 500px;
+    font-size: 16px;
+    line-height: 1.8rem;
+    overflow-y: auto;
+
+}
+.destination-card-root > .button-primary {
+    grid-column: span 2 / span 2;
+    grid-column-start: 2;
+    grid-row-start: 4;
+
+    align-self: start;
+    justify-self: center;
+
+    --size: 1rem;
+    padding: 10px 20px;
+} */
+
+.destination-card-root {
+    display: grid;
+    grid-template-columns: 
+        minmax(250px, 50%) 
+        minmax(150px, 1fr) 
+        minmax(150px, 1fr);
+    grid-template-rows: 
+        auto 
+        auto 
+        auto 
+        minmax(50px, 10%);
+    grid-column-gap: clamp(10px, 2vw, 20px);
+    grid-row-gap: clamp(5px, 1.5vw, 10px);
+
+    justify-items: stretch;
+    align-items: start;
+
+    padding: clamp(15px, 4vw, 30px);
+    box-sizing: border-box;
+
+    width: 90vw;
+    max-width: 1200px;
+
+    border-radius: clamp(10px, 2vw, 20px);
+    background-color: white;
+    margin: auto;
+}
+    
+.destination-card-root .title { 
+    font-size: clamp(32px, 6vw, 64px);
+    font-weight: 900;
+}
+
+.destination-card-root .subtitle { 
+    grid-column-start: 1;
+    grid-row-start: 2;
+    font-size: clamp(16px, 3vw, 32px);
+    font-weight: 200;
+}
+
+.destination-card-root .slideshow {
+    grid-row: span 2 / span 2;
+    grid-column-start: 1;
+    grid-row-start: 3;
+
+    width: 100%;
+    height: auto;
+}
+
+.destination-card-root .user-actions { 
+    grid-column-start: 2;
+    grid-row-start: 1;
+
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-self: flex-end;
+
+    /* align-items: stretch; */
+
+    gap: clamp(5px, 1vw, 10px);
+
+    & > .user-action {
+        border-radius: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        flex: 1 1 auto;
+
+        --size: 0.7rem;
+    }
+}
+
+.destination-card-root .average-reviews { 
+    grid-column-start: 3;
+    grid-row-start: 1;
+
+    align-self: end;
+    justify-self: end;
+
+    display: inline-flex;
+    flex-flow: column nowrap;
+    text-align: right;
+
+    & > p {
+        margin-right: clamp(10px, 2vw, 20px);
+        font-size: clamp(14px, 2vw, 22px);
+    }
+}
+
+.destination-card-root .about-title { 
+    grid-column: span 2 / span 2;
+    grid-column-start: 2;
+    grid-row-start: 2;
+
+    font-size: clamp(24px, 4vw, 48px);
+    font-weight: 700;
+}
+
+.destination-card-root .description { 
+    grid-column: span 2 / span 2;
+    grid-row-start: 3;
+
+    max-height: 500px;
+    font-size: clamp(16px, 2.5vw, 22px);
+    line-height: clamp(1.5rem, 3vw, 2.5rem);
+    overflow-y: auto;
+}
+
+.destination-card-root > .button-primary {
+    grid-column: span 2 / span 2;
+    grid-column-start: 2;
+    grid-row-start: 4;
+
+    align-self: start;
+    justify-self: center;
+
+    --size: 2rem;
+    padding: 1rem 1rem;
+}
+
+/* Responsive Grid Adjustments */
+@media screen and (max-width: 1024px) {
+    .destination-card-root {
+        /* grid-template-columns: 1fr;
+        grid-template-rows: repeat(auto-fill, auto); */
+        display: flex;
+        flex-flow: column;
+        width: 95vw;
+    }
+
+    .destination-card-root .slideshow,
+    .destination-card-root .title,
+    .destination-card-root .subtitle,
+    .destination-card-root .about-title,
+    .destination-card-root .description,
+    .destination-card-root .user-actions,
+    .destination-card-root .average-reviews,
+    .destination-card-root > .button-primary {
+        grid-column: 1;
+        justify-self: center;
+        text-align: left;
+    }
+
+    .user-actions {
+        position: absolute;
+        right: 45px;
+        margin-top: 50%;
+
+        z-index: 2;
+
+        &> .user-action {
+            background-color: #c5c5c56b;
+            backdrop-filter: blur(30px);
+        }
+    }
+
+    .destination-card-root .user-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

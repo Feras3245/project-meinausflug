@@ -7,6 +7,6 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent]
 class SlideShow
 {
-    public string $uuid;
+    public string $id;
     public array $images;
 }

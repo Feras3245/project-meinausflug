@@ -1,8 +1,8 @@
-<div {{attributes}} id="destination-{{this.uuid}}" class="destination-root-container">
+<div {{attributes}} id="destination-{{this.destID}}" class="destination-root-container">
     <div class="destination-head-container">
         <h2 class="destination-title">{{this.destTitle}}</h2>
         <p class="destination-subtitle">{{this.subtitle}}</p>
-        <twig:Components:SlideShow uuid="{{this.uuid}}" images="{{this.images}}"></twig:Components:SlideShow>
+        <twig:Components:SlideShow id="{{this.destID}}" images="{{this.images}}"></twig:Components:SlideShow>
     </div>
     <div class="destination-body-container">
         <div class="destination-actions-reviews-container">

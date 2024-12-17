@@ -1,4 +1,4 @@
-<div id="slideshow-{{this.uuid}}" class="slideshow">
+<div id="slideshow-{{this.id}}" class="slideshow">
     <div class="image-frame"></div>
     <div class="slideshow-controls">
         <a class="icon-button arrow-left">
@@ -15,11 +15,11 @@
         </a>
         <script>
             $(document).ready(function () {
-                const root = $('#slideshow-{{ uuid }}'); // Scope to this specific slideshow
+                const root = $('#slideshow-{{ id }}'); // Scope to this specific slideshow
                 const images = [
                     {% for image in images %}
-                    '{{ image }}'{{ loop.last ? '' : ',' }}
-                {% endfor %}
+                    '{{ absolute_url(asset(image)) }}'{{ loop.last ? '' : ',' }}
+                    {% endfor %}
             ];
             let currentIndex = 0;
             const imageFrame = root.find('.image-frame');

@@ -1,0 +1,32 @@
+.icon-button {
+	--size: clamp(1.8rem, 1.514rem + 1.429vw, 2.8rem);
+
+	& {
+		all: unset;
+		color: #343434;
+		user-select: none;
+		cursor: pointer;
+		transition: all 200ms;
+		display: inline-flex;
+
+		width: auto;
+		height: var(--size);
+	}
+
+	&:hover {
+		color: #848484;
+		transition: all 200ms;
+	}
+
+	&:active {
+		background: unset;
+		color: #FF5900;
+		transition: all 200ms;
+	}
+
+	&>svg {
+		width: 100%;
+		height: auto;
+		overflow: visible;
+	}
+}

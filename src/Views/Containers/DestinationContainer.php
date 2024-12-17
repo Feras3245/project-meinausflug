@@ -7,7 +7,7 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent]
 class DestinationContainer
 {
-    public $uuid;
+    public $destID;
     public $destTitle;
     public $subtitle;
     public $totalReviews;
