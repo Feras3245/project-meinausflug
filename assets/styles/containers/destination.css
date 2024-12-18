@@ -1,382 +1,239 @@
+.dest-card-root {
+    max-width: 80%;
 
+    margin: auto;
 
-/* .destination-card-root {
-    display: grid;
-    grid-template-columns: 
-        minmax(250px, 50%) 
-        minmax(150px, 1fr) 
-        minmax(150px, 1fr);
-    grid-template-rows: 
-        auto 
-        auto 
-        auto 
-        minmax(50px, 10%);
-    grid-column-gap: 20px;
-    grid-row-gap: 10px;
+    display: flex;
+    flex-flow: row nowrap;
 
-    justify-items: stretch;
-    align-items: start;
-
-    padding: 30px;
+    padding: 40px;
     box-sizing: border-box;
 
-    width: 90vw;
-    max-width: 1200px;
-
-    border-radius: 20px;
     background-color: white;
-    margin: auto;
-}
-    
-.destination-card-root .title { 
-    font-size: 64px;
-    font-weight: 900;
-}
-.destination-card-root .subtitle { 
-    grid-column-start: 1;
-    grid-row-start: 2;
-    font-size: 32px;
-    font-weight: 200;
-}
-.destination-card-root .slideshow {
-    grid-row: span 2 / span 2;
-    grid-column-start: 1;
-    grid-row-start: 3;
+    border-radius: 20px;
 
-    width: 100%;
-    height: 600px;
-}
-.destination-card-root .user-actions { 
-    grid-column-start: 2;
-    grid-row-start: 1;
+    box-shadow: 0px 10px 25px -10px rgba(0,0,0,0.8);
 
-    display: inline-flex;
-    flex-flow: row nowrap;
-    align-self: flex-end;
+    gap: 20px;
+}
+
+.dest-card-root .head {
+    display: flex;
+    flex-flow: column nowrap;
 
     gap: 10px;
-
-    &>.user-action {
-        border-radius: 5px;
-    }
+    min-width: 50%;
+    text-align: center;
 }
-.destination-card-root .average-reviews { 
-    grid-column-start: 3;
-    grid-row-start: 1;
 
-    align-self: end;
-    justify-self: end;
-
-    display: inline-flex;
+.dest-card-root .body {
+    display: flex;
     flex-flow: column nowrap;
-    text-align: right;
 
-    &>p {
-        margin-right: 20px;
-    }
-}
-.destination-card-root .about-title { 
-    grid-column: span 2 / span 2;
-    grid-column-start: 2;
-    grid-row-start: 2;
-
-    font-size: 48px;
-    font-weight: 700;
-}
-.destination-card-root .description { 
-    grid-column: span 2 / span 2;
-    grid-row-start: 3;
-
-    max-height: 500px;
-    font-size: 22px;
-    line-height: 2.5rem;
-    overflow-y: auto;
-
-}
-.destination-card-root > .button-primary {
-    grid-column: span 2 / span 2;
-    grid-column-start: 2;
-    grid-row-start: 4;
-
-    align-self: start;
-    justify-self: center;
-
-    --size: 2rem;
-    padding: 1rem 2rem;
-} */
-
-
-
-/* .destination-card-root {
-    display: grid;
-    grid-template-columns: 
-        minmax(250px, 50%) 
-        minmax(150px, 1fr) 
-        minmax(150px, 1fr);
-    grid-template-rows: 
-        auto 
-        auto 
-        auto 
-        minmax(50px, 10%);
-    grid-column-gap: 20px;
-    grid-row-gap: 10px;
-
-    justify-items: stretch;
-    align-items: start;
-
-    padding: 30px;
-    box-sizing: border-box;
-
-    width: 90vw;
-    max-width: 1200px;
-
-    border-radius: 20px;
-    background-color: white;
-    margin: auto;
-}
-    
-.destination-card-root .title { 
-    font-size: 36px;
-    font-weight: 900;
-}
-.destination-card-root .subtitle { 
-    grid-column-start: 1;
-    grid-row-start: 2;
-    font-size: 20px;
-    font-weight: 200;
-}
-.destination-card-root .slideshow {
-    grid-row: span 2 / span 2;
-    grid-column-start: 1;
-    grid-row-start: 3;
-
-    width: 100%;
-    height: 600px;
-}
-.destination-card-root .user-actions { 
-    grid-column-start: 2;
-    grid-row-start: 1;
-
-    display: inline-flex;
-    flex-flow: row nowrap;
-    align-self: flex-end;
+    align-items: flex-start;
 
     gap: 10px;
-
-    &>.user-action {
-        border-radius: 5px;
-        --size: 0.7rem;
-        padding: 10px 10px;
-    }
 }
-.destination-card-root .average-reviews { 
-    grid-column-start: 3;
-    grid-row-start: 1;
-
-    align-self: end;
-    justify-self: end;
-
-    display: inline-flex;
-    flex-flow: column nowrap;
-    text-align: right;
-
-    &>p {
-        margin-right: 11px;
-    }
-
-    .review-score{
-        --size: 1rem;
-    }
 
 
-}
-.destination-card-root .about-title { 
-    grid-column: span 2 / span 2;
-    grid-column-start: 2;
-    grid-row-start: 2;
-
-    font-size: 25px;
-    font-weight: 700;
-}
-.destination-card-root .description { 
-    grid-column: span 2 / span 2;
-    grid-row-start: 3;
-
-    max-height: 500px;
-    font-size: 16px;
-    line-height: 1.8rem;
-    overflow-y: auto;
-
-}
-.destination-card-root > .button-primary {
-    grid-column: span 2 / span 2;
-    grid-column-start: 2;
-    grid-row-start: 4;
-
-    align-self: start;
-    justify-self: center;
-
-    --size: 1rem;
-    padding: 10px 20px;
-} */
-
-.destination-card-root {
-    display: grid;
-    grid-template-columns: 
-        minmax(250px, 50%) 
-        minmax(150px, 1fr) 
-        minmax(150px, 1fr);
-    grid-template-rows: 
-        auto 
-        auto 
-        auto 
-        minmax(50px, 10%);
-    grid-column-gap: clamp(10px, 2vw, 20px);
-    grid-row-gap: clamp(5px, 1.5vw, 10px);
-
-    justify-items: stretch;
-    align-items: start;
-
-    padding: clamp(15px, 4vw, 30px);
-    box-sizing: border-box;
-
-    width: 90vw;
-    max-width: 1200px;
-
-    border-radius: clamp(10px, 2vw, 20px);
-    background-color: white;
-    margin: auto;
-}
-    
-.destination-card-root .title { 
-    font-size: clamp(32px, 6vw, 64px);
+.dest-card-root .head .title {
+    font-size: clamp(2.25rem, 0.825rem + 2.4vw, 3rem);
     font-weight: 900;
 }
 
-.destination-card-root .subtitle { 
-    grid-column-start: 1;
-    grid-row-start: 2;
-    font-size: clamp(16px, 3vw, 32px);
+.dest-card-root .head .subtitle {
+    font-size: clamp(1.25rem, 0.5375rem + 1.2vw, 1.625rem);
     font-weight: 200;
 }
 
-.destination-card-root .slideshow {
-    grid-row: span 2 / span 2;
-    grid-column-start: 1;
-    grid-row-start: 3;
-
-    width: 100%;
-    height: auto;
+.dest-card-root .head .slideshow .image-frame {
+    min-height: 500px;
 }
+.dest-card-root .head {
+    position: relative;
+}
+.dest-card-root .head #mobile-user-actions-adaptation {
+    display: none;
+    flex-flow: column nowrap;
+    gap: 5px;
 
-.destination-card-root .user-actions { 
-    grid-column-start: 2;
-    grid-row-start: 1;
+    align-self: flex-start;
 
-    display: inline-flex;
-    flex-flow: row nowrap;
-    align-self: flex-end;
-
-    /* align-items: stretch; */
-
-    gap: clamp(5px, 1vw, 10px);
+    position: absolute;
+    top: 40%;
+    right: 10px;
 
     & > .user-action {
         border-radius: 5px;
-        padding-left: 10px;
-        padding-right: 10px;
-        flex: 1 1 auto;
+        padding: 10px 0;
+        min-width: 50px;
+        justify-content: center;
 
-        --size: 0.7rem;
+        background-color: #c5c5c56b;
+        backdrop-filter: blur(30px);
     }
 }
 
-.destination-card-root .average-reviews { 
-    grid-column-start: 3;
-    grid-row-start: 1;
 
-    align-self: end;
-    justify-self: end;
 
-    display: inline-flex;
-    flex-flow: column nowrap;
-    text-align: right;
+.dest-card-root .body .actions-reviews {
+    display: flex;
+    flex-flow: row nowrap;
+    align-self: stretch;
+    align-items: flex-end;
+    justify-content: space-between;
+}
 
-    & > p {
-        margin-right: clamp(10px, 2vw, 20px);
-        font-size: clamp(14px, 2vw, 22px);
+.dest-card-root .body .actions-reviews .user-actions {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 5px;
+
+    & > .user-action {
+        border-radius: 5px;
+        padding: 10px 0;
+        min-width: 50px;
+        justify-content: center;
+        --size: 1rem;
     }
 }
 
-.destination-card-root .about-title { 
-    grid-column: span 2 / span 2;
-    grid-column-start: 2;
-    grid-row-start: 2;
+.dest-card-root .body .user-actions .user-action svg{
+    --size: clamp(0.7rem, -0.25rem + 1.6vw, 1.2rem);
+} 
 
-    font-size: clamp(24px, 4vw, 48px);
-    font-weight: 700;
+.dest-card-root .body .actions-reviews .average-reviews {
+    &>p {
+        font-size: 1rem;
+        text-align: right;
+        margin-right: 20px;
+    }
+
+    &>.review-score {
+        --size: 1.3rem;
+    }
 }
 
-.destination-card-root .description { 
-    grid-column: span 2 / span 2;
-    grid-row-start: 3;
-
-    max-height: 500px;
-    font-size: clamp(16px, 2.5vw, 22px);
-    line-height: clamp(1.5rem, 3vw, 2.5rem);
-    overflow-y: auto;
+.dest-card-root .body .about {
+    font-size: clamp(1.875rem, 1.163rem + 1.2vw, 2.25rem);
+    font-weight: 500;
+    margin-top: 10px;
 }
 
-.destination-card-root > .button-primary {
-    grid-column: span 2 / span 2;
-    grid-column-start: 2;
-    grid-row-start: 4;
-
-    align-self: start;
-    justify-self: center;
-
-    --size: 2rem;
-    padding: 1rem 1rem;
+.dest-card-root .body .description {
+    height: 400px;
+    font-size: clamp(1rem, 0.43rem + 0.96vw, 1.3rem);
+    line-height: clamp(1.5rem, 0.55rem + 1.6vw, 2rem);
+    overflow-y: scroll;
+    margin-bottom: 20px;
 }
 
-/* Responsive Grid Adjustments */
-@media screen and (max-width: 1024px) {
-    .destination-card-root {
-        /* grid-template-columns: 1fr;
-        grid-template-rows: repeat(auto-fill, auto); */
+.dest-card-root .body .button-primary {
+
+    align-self: center;
+    --size: clamp(1rem, 0.05rem + 1.6vw, 1.5rem);
+    padding: 10px 20px;
+}
+
+@media  screen and (max-width: 950px) {
+    .dest-card-root {
+        max-width: 95%;
+        flex-flow: column nowrap;
+    
+        padding: 20px 30px;
+        box-sizing: border-box;
+    
+        background-color: white;
+        border-radius: 20px;
+    
+        gap: 10px;
+    }
+
+    .dest-card-root .head .slideshow .image-frame {
+        min-height: 450px;
+    }
+
+    .dest-card-root .body {
+        gap: 10px;
+    }
+
+    .dest-card-root .body .about {
+        margin-top: 10px;
+    }
+
+    .dest-card-root .body .description {
+        height: 250px;
+        font-size: 1rem;
+        line-height: 1.7rem;
+        overflow-y: scroll;
+    }
+
+    .dest-card-root .body .button-primary {
+
+        align-self: center;
+        --size: 1.3rem;
+        padding: 10px 20px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .dest-card-root .head .title {
+        font-size: 38px;
+    }
+
+    .dest-card-root .head .subtitle {
+        font-size: 20px;
+    }
+
+    .dest-card-root .body .actions-reviews .user-actions {
+        display: none;
+    }
+    .dest-card-root .head #mobile-user-actions-adaptation {
         display: flex;
-        flex-flow: column;
-        width: 95vw;
     }
-
-    .destination-card-root .slideshow,
-    .destination-card-root .title,
-    .destination-card-root .subtitle,
-    .destination-card-root .about-title,
-    .destination-card-root .description,
-    .destination-card-root .user-actions,
-    .destination-card-root .average-reviews,
-    .destination-card-root > .button-primary {
-        grid-column: 1;
-        justify-self: center;
-        text-align: left;
-    }
-
-    .user-actions {
-        position: absolute;
-        right: 45px;
-        margin-top: 50%;
-
-        z-index: 2;
-
-        &> .user-action {
-            background-color: #c5c5c56b;
-            backdrop-filter: blur(30px);
+    .dest-card-root .body .actions-reviews .average-reviews {
+        &>p {
+            font-size: 0.8rem;
+            margin-right: 10px;
+        }
+    
+        &>.review-score {
+            --size: 1rem;
         }
     }
 
-    .destination-card-root .user-actions {
-        flex-direction: column;
-        align-items: stretch;
+    .dest-card-root .body .actions-reviews {
+        justify-content: flex-end;
+    }
+
+    .dest-card-root .body {
+        gap: 5px;
+    }
+
+    .dest-card-root .body .about {
+        margin-top: 5px;
+    }
+
+    .dest-card-root .body .description {
+        height: 250px;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        overflow-y: scroll;
+    }
+
+    .dest-card-root .body .button-primary {
+
+        align-self: center;
+        --size: 1rem;
+        padding: 10px 20px;
     }
 }
+
+/* @media screen and (max-width: 360px) {
+    .dest-card-root .body .actions-reviews {
+        flex-flow: column nowrap;
+    }
+
+    .dest-card-root .body .actions-reviews .user-actions {
+    }
+} */

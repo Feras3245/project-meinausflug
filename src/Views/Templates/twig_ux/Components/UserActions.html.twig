@@ -1,6 +1,6 @@
 <div {{attributes}} class="user-actions">
-    <twig:Components:Button type="secondary user-action" id="favorite-button"><twig:Icons:FavoriteIcon/></twig:Components:Button>
-    <twig:Components:Button type="secondary user-action" id="share-button"><twig:Icons:ShareIcon/></twig:Components:Button>
-    <twig:Components:Button type="secondary user-action" id="hide-button"><twig:Icons:HideIcon/></twig:Components:Button>
-    <twig:Components:Button type="secondary user-action" id="favorite-button"><twig:Icons:CompareIcon/></twig:Components:Button>
+    <twig:Components:Button type="secondary user-action" href="destination/favorite/{{this.rootID}}" id="favorite-button"><twig:Icons:FavoriteIcon/></twig:Components:Button>
+    <twig:Components:Button type="secondary user-action" href="destination/share/{{this.rootID}}" id="share-button"><twig:Icons:ShareIcon/></twig:Components:Button>
+    <twig:Components:Button type="secondary user-action" href="destination/hide/{{this.rootID}}" id="hide-button"><twig:Icons:HideIcon/></twig:Components:Button>
+    <twig:Components:Button type="secondary user-action" href="destination/compare/{{this.rootID}}" id="favorite-button"><twig:Icons:CompareIcon/></twig:Components:Button>
 </div>

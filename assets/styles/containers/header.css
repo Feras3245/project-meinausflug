@@ -18,6 +18,8 @@ header {
 
 	gap: 5vh;
 
+	box-shadow: 0px 10px 25px -10px rgba(0,0,0,0.8);
+
 	& > .button-primary > #current-location {
 		font-weight: 700;
 	}

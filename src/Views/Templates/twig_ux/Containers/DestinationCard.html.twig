@@ -1,0 +1,22 @@
+<div {{attributes}} id="dest-card-{{destination.destID}}" class="dest-card-root">
+    <div class="head">
+        <h3 class="title">{{destination.city}}, {{destination.country}}</h3>
+        <span class="subtitle">{{destination.subtitle}}</span>
+        <twig:Components:SlideShow id="{{destination.destID}}" :images="destination.destImages"/>
+        <twig:Components:UserActions id="mobile-user-actions-adaptation" rootID="{{destination.destID}}"/>
+    </div>
+    <div class="body">
+        <div class="actions-reviews">
+            <twig:Components:UserActions rootID="{{destination.destID}}"/>
+            <div class="average-reviews">
+                <p>{{destination.reviewsCount}} Reviews</p>
+                <twig:Components:ReviewScore :score="destination.avgScore"/>
+            </div>
+        </div>
+        <h4 class="about">About {{destination.city}}</h4>
+        <p class="description">
+            {{destination.description}}
+        </p>
+        <twig:Components:Button type="primary"><twig:Icons:ClickActionIcon/>Book Your Trip Now!</twig:Components:Button>
+    </div>
+</div>
