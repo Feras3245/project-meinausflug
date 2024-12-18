@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{ asset('/styles/components/icon-button.css') }}">
     <link rel="stylesheet" href="{{ asset('/styles/components/slideshow.css') }}">
     <link rel="stylesheet" href="{{ asset('/styles/containers/destination.css') }}">
-    
+
     <style>
 
     </style>
@@ -25,8 +25,9 @@
 {% endblock %}
 
 {% block body %}
-    <twig:Containers:Header :headerImages="header"/>
+    <div style="height: 40px;"></div>
     <twig:Containers:NavBar/>
+    <twig:Containers:Header :headerImages="header"/>
     <twig:Containers:DestinationCard :destination="destination"/>
     <br><br>
     <div style="height: 2000px;"></div>

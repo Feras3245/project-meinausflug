@@ -30,7 +30,6 @@ nav {
 }
 
 
-
 .horizontal-divider {
 	width: 3px;
 	background-color: #343434;
@@ -100,7 +99,7 @@ nav {
 
 
 .nav-bar {
-	position: fixed;
+	position: sticky;
 	top: 0;
 	transition: position 0.3s ease;
 	height: fit-content;

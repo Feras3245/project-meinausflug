@@ -26,6 +26,12 @@
     text-align: center;
 }
 
+.dest-card-root .horizontal-divider {
+    width: 20px;
+    background-color: #cecece;
+    margin: 0;
+}
+
 .dest-card-root .body {
     display: flex;
     flex-flow: column nowrap;
@@ -135,7 +141,7 @@
     padding: 10px 20px;
 }
 
-@media  screen and (max-width: 950px) {
+@media  screen and (max-width: 990px) {
     .dest-card-root {
         max-width: 95%;
         flex-flow: column nowrap;
@@ -228,12 +234,3 @@
         padding: 10px 20px;
     }
 }
-
-/* @media screen and (max-width: 360px) {
-    .dest-card-root .body .actions-reviews {
-        flex-flow: column nowrap;
-    }
-
-    .dest-card-root .body .actions-reviews .user-actions {
-    }
-} */
