@@ -50,7 +50,7 @@ search:hover {
 /* Visibility and Focus States */
 search:has(input:focus),
 search:has(.button-secondary:focus) {
-	border: 2px solid #FF5900;
+	border: 2px solid #ffffff;
 	border-radius: 500px;
 	transition: all 200ms;
 }
@@ -72,7 +72,7 @@ search>label>svg {
 
 search:has(input:focus)>label>svg,
 search:has(input:focus)>.button-secondary {
-	color: #FF5900;
+	color: #ffffff;
 }
 
 search>.button-secondary {
@@ -99,6 +99,6 @@ search:hover>.button-secondary {
 }
 
 search:hover>.button-secondary:hover {
-	color: #FF5900;
-	box-shadow: inset 0px 0px 0px 1px #FF5900;
+	color: #ffffff;
+	box-shadow: inset 0px 0px 0px 1px #ffffff;
 }
