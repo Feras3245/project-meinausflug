@@ -22,11 +22,17 @@
 		width: auto;
 		height: var(--size);
 		overflow: visible;
-		color: #FF5900;
+		color: #343434;
 	}
 
 	&>span {
 		font-weight: 700;
 		font-size: var(--size);
+	}
+}
+
+.review-score:hover {
+	&>svg {
+		color: #FF5900;
 	}
 }

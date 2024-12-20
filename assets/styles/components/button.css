@@ -4,11 +4,14 @@
 	& {
 		all: unset;
 		padding: 10px 20px;
-		color: white;
-		background-color: #FF5900;
 		border-radius: 1000px;
 		user-select: none;
 		cursor: pointer;
+
+		background: #DBAE1F;
+		background: linear-gradient(135deg, #DBAE1F, #FF7773);
+
+		color: #343434;
 
 		display: inline-flex;
 		align-items: center;
@@ -27,13 +30,13 @@
 
 	&:hover {
 		/* Scale up slightly and enhance the gradient */
-		background: linear-gradient(135deg, #FF762C, #FF8F4A);
+		color: white;
+		background: #FF7773;
+		background: linear-gradient(135deg, #FF7773, #DBAE1F);
 		box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
 	}
 
 	&:active {
-		/* Pressed effect with an inset shadow and slight scale down */
-		background: linear-gradient(135deg, #FF5900, #FF762C);
 		transform: scale(0.97);
 		box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.2);
 		color: #ffffff;
@@ -63,15 +66,16 @@
 	& {
 		all: unset;
 		padding: 10px 20px;
-		color: #FF5900;
 		border-radius: 1000px;
 		user-select: none;
 		cursor: pointer;
-		box-shadow: inset 0px 0px 0px 2px #FF5900;
 		display: inline-flex;
 		align-items: center;
 		align-content: center;
 		gap: 10px;
+
+		color: #343434;
+		box-shadow: inset 0px 0px 0px 2px #343434;
 
 		white-space: nowrap;
 
@@ -88,8 +92,9 @@
 
 	&:hover {
 		color: #ffffff;
-		background-color: #FF5900;
-		box-shadow: 0px 0px 8px 2px rgba(255, 89, 0, 0.5), inset 0px 0px 0px 1px #FF5900;
+		background: #DBAF20;
+		background: linear-gradient(315deg, #DBAF20, #FF7773);
+		box-shadow: unset;
 		transform: translateY(-3px);
 	}
 
@@ -142,20 +147,22 @@
 	}
 
 	&:hover {
-		color: #FF5900;
-		background-color: rgba(255, 89, 0, 0.1);
+		color: #ffffff;
 		/* Light orange tint */
+		background: #DBAF20;
+		background: linear-gradient(315deg, #dbaf204b, #ff787354);
+		
 		transform: translateY(-2px);
 
 		&>svg {
-			color: #FF5900;
+			color: #ffffff;
 		}
 	}
 
 	&:active {
 		color: #ffffff;
-		background-color: #FF5900;
-		box-shadow: inset 0px 0px 0px 2px #ff5900;
+		background: #DBAF20;
+		background: linear-gradient(315deg, #DBAF20, #FF7773);
 		transform: scale(0.97);
 
 		&>svg {

@@ -19,6 +19,7 @@ header {
 	gap: 5vh;
 
 	box-shadow: 0px 10px 25px -10px rgba(0,0,0,0.8);
+	
 
 	& > .button-primary > #current-location {
 		font-weight: 700;
@@ -45,14 +46,18 @@ header {
 	box-shadow: 0px 10px 25px -10px rgba(0,0,0,0.8);
 
 	&>h2 {
-		color: #ffffff;
+		color: #343434;
 		font-size: clamp(3rem, 1.447rem + 7.767vw, 8rem);
 		font-weight: 700;
 	}
 
 	&>h2>strong {
-		color: #FF5900;
+		color: #DBAF20;
 		font-weight: 900;
+		background: -webkit-linear-gradient(315deg, #DBAF20, #FF7773);
+		-webkit-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
 	}
 
 	&>p {

@@ -8,7 +8,12 @@
 
 		justify-content: center;
 		align-items: center;
-		color: #FF5900;
+		color: #343434;
+		background: -webkit-linear-gradient(315deg, #DBAF20, #FF7773);
+		-webkit-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+		line-height: normal;
 		font-size: var(--size);
 	}
 
@@ -25,5 +30,8 @@
 	&>span>strong {
 		font-weight: 900;
 		color: #343434;
+		-webkit-background-clip: initial;
+		background-clip: initial;
+		-webkit-text-fill-color: initial;
 	}
 }

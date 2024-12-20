@@ -1,0 +1,32 @@
+.destination-header {
+    display: flex;
+    flex-direction: column;
+
+    place-content: center;
+    align-items: stretch;
+
+    position: relative;
+
+    width: 90%;
+    padding-top: 40px;
+
+    border-radius: 20px;
+    
+    background-repeat:no-repeat;
+    background-size: contain;
+    background-position:center;
+
+    background-color: #e8ba97;
+    backdrop-filter: blur(30px);
+
+    box-shadow: 0px 10px 25px -10px rgba(0,0,0,0.8);
+
+}
+
+.destination-header h1 {
+    position: absolute;
+    top: 0px;
+    z-index: 2;
+    font-size: 64px;
+    font-weight: 700;
+}
