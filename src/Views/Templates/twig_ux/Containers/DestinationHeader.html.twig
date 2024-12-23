@@ -1,0 +1,49 @@
+<header {{ attributes }} class="destination-header" id="dynamic-destination-header">
+    <div class="header-message-container">
+        <h2>Make <strong>A Vacation</strong></h2>
+        <p>simply &#38; comfortably</p>
+    </div>
+    <twig:Components:Button id="explore-button" type="primary">
+        <twig:Icons:ExploreIcon/>
+        Explore&nbsp;<span id="current-location"></span>
+    </twig:Components:Button>
+</header>
+
+<script>
+    $(document).ready(function () {
+        const header = $('#dynamic-destination-header');
+        const exploreButton = $('#explore-button');
+        const locationSpan = $('#current-location');
+
+        const destinationImages = [
+            {% for image in images %}
+                    '{{ absolute_url(asset(image)) }}'{{ loop.last ? '' : ',' }}
+            {% endfor %}
+        ];
+        const cityName = '{{ this.city }}';
+        const destID = '{{ this.destID }}';
+
+        let currentIndex = 0;
+
+        function changeBackground() {
+            // Get the current image from the destinationImages array
+            const currentImage = destinationImages[currentIndex];
+
+            // Update header background image
+            header.css('background-image', `url(${currentImage})`);
+
+            // Update location title and button href
+            locationSpan.text(cityName);
+            exploreButton.attr('href', `/destination/${destID}`);
+
+            // Move to the next image, looping back to the start if necessary
+            currentIndex = (currentIndex + 1) % destinationImages.length;
+        }
+
+        // Set the initial background image and location
+        changeBackground();
+
+        // Change the background image every 5 seconds
+        setInterval(changeBackground, 5000);
+    });
+</script>

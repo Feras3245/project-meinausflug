@@ -1,8 +1,6 @@
 search {
 	--size: clamp(1rem, 0.948rem + 0.258vw, 1.25rem);
-	--search-max-width: 30ch;
-	--search-min-width: 15ch;
-
+	
 	padding: 5px 10px;
 	display: inline-flex;
 	flex-flow: row nowrap;
@@ -20,9 +18,8 @@ search>input {
 	border: unset;
 	visibility: hidden;
 	background-color: transparent;
-	max-width: var(--search-max-width);
-	min-width: var(--search-min-width);
-	width: 100%;
+	max-width: 100%;
+	min-width: 15ch;
 	flex: 1 1 auto;
 	font-size: var(--size);
 	transition: visibility 200ms, width 200ms;

@@ -23,6 +23,14 @@
 		width: calc(var(--size) * 2);
 	}
 
+	&>svg>.logo-background {
+		color: #343434;
+	}
+
+	&>svg>.logo-foreground {
+		fill: url('#logo-gradient');
+	}
+
 	&>span {
 		font-weight: 600;
 	}

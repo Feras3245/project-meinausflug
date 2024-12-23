@@ -1,32 +1,80 @@
 .destination-header {
-    display: flex;
-    flex-direction: column;
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-position:center;
+
+	display: flex;
+	flex-direction: column;
 
     place-content: center;
-    align-items: stretch;
+    align-items: center;
 
-    position: relative;
+	transition: background-image 1s;
 
-    width: 90%;
-    padding-top: 40px;
+	height: 100vh;
 
-    border-radius: 20px;
-    
-    background-repeat:no-repeat;
-    background-size: contain;
-    background-position:center;
+	margin: 0.5vw 2vw 1vw 2vw;
+	border-radius: 30px;
 
-    background-color: #e8ba97;
-    backdrop-filter: blur(30px);
+	gap: 5vh;
 
-    box-shadow: 0px 10px 25px -10px rgba(0,0,0,0.8);
+	box-shadow: 0px 10px 25px -10px rgba(0,0,0,0.8);
+	
 
+	& > .button-primary > #current-location {
+		font-weight: 700;
+	}
 }
 
-.destination-header h1 {
-    position: absolute;
-    top: 0px;
-    z-index: 2;
-    font-size: 64px;
-    font-weight: 700;
+/* Responsive hero banner */
+.destination-header .header-message-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	flex-flow: column nowrap;
+
+	margin: 10px;
+
+	text-align: center;
+
+	padding: 20px;
+	background-color: #c5c5c56b;
+	backdrop-filter: blur(30px);
+	border-radius: 20px;
+
+	box-shadow: 0px 10px 25px -10px rgba(0,0,0,0.8);
+
+	&>h2 {
+		color: #343434;
+		font-size: clamp(3rem, 1.447rem + 7.767vw, 8rem);
+		font-weight: 700;
+	}
+
+	&>h2>strong {
+		color: #DBAF20;
+		font-weight: 900;
+		background: -webkit-linear-gradient(315deg, #DBAF20, #FF7773);
+		-webkit-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	&>p {
+		color: #343434;
+		font-weight: 300;
+		font-size: clamp(1.25rem, 0.396rem + 4.272vw, 4rem);
+	}
 }
+
+.destination-header > .button-primary {
+	--size: clamp(1rem, 0.689rem + 1.553vw, 2rem);
+	padding: clamp(1rem, 0.689rem + 1.553vw, 2rem);
+
+	gap: 0;
+
+	&>svg {
+		margin-right: 10px;
+	}
+}
+

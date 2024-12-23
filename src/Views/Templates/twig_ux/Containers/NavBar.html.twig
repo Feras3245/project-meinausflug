@@ -1,14 +1,14 @@
 <nav {{attributes}} class="nav-bar">
         <div class="nav-left">
-                <twig:Components:LogoTitle/>
+                <twig:Components:LogoTitle id="navbar-logo-title"/>
 
                 <div class="horizontal-divider"></div>
                 
-                <twig:Components:SearchBar/>
+                <twig:Components:SearchBar id="nav-search-bar"/>
         </div>
 
         <div class="nav-right">
-                <twig:Components:LogoTitle id="mobile-logo-title"/>
+                {# <twig:Components:LogoTitle id="mobile-logo-title"/> #}
                 <twig:Components:Button type="primary"><twig:Icons:LoginIcon/>Sign In</twig:Components:Button>
 
                 <twig:Components:Button type="secondary"><twig:Icons:LocaleIcon/>EN</twig:Components:Button>
@@ -58,28 +58,63 @@
                         }
                 });
                 });
+        </script>
 
-                {# $(document).ready(function() {
-                $('#nav-sidebar-toggler').on('click', function(e) {
-                        e.stopPropagation();
-                        $('#side-menu').toggleClass('active');
-                });
-
-                // Close side menu when clicking outside
-                $(document).on('click', function(e) {
-                        if ($('#side-menu').hasClass('active') && 
-                        !$(e.target).closest('#side-menu, #nav-sidebar-toggler').length) {
-                        $('#side-menu').removeClass('active');
+        <script>
+                $(document).ready(function () {
+                function adjustNavbarLogoTitle() {
+                        if ($(window).width() < 1024) {
+                        // Move #navbar-logo-title to .nav-right as the first element and set margin-right: auto
+                        if (!$('#navbar-logo-title').parent().hasClass('nav-right')) {
+                                $('#navbar-logo-title').prependTo('.nav-right').css('margin-right', 'auto');
                         }
-                });
-
-                // Close menu on ESC key
-                $(document).on('keydown', function(e) {
-                        if (e.key === 'Escape' && $('#side-menu').hasClass('active')) {
-                        $('#side-menu').removeClass('active');
+                        } else {
+                        // Move #navbar-logo-title back to .nav-left as the first element and reset margin-right
+                        if (!$('#navbar-logo-title').parent().hasClass('nav-left')) {
+                                $('#navbar-logo-title').prependTo('.nav-left').css('margin-right', '');
                         }
+                        }
+                }
+
+                // Run the function on page load
+                adjustNavbarLogoTitle();
+
+                // Attach the function to the window resize event
+                $(window).on('resize', function () {
+                        adjustNavbarLogoTitle();
                 });
-                }); #}
-                </script>
+        });
+
+        </script>
+        <script>
+                $(document).ready(function () {
+                // Function to handle element placement based on screen width
+                function handleSearchBarPlacement() {
+                const $navSearchBar = $("#nav-search-bar");
+                const $sidemenuSearchSection = $("#sidemenu-search-section");
+
+                if ($(window).width() < 1024) {
+                // Move #nav-search-bar to #sidemenu-search-section
+                if (!$sidemenuSearchSection.find("#nav-search-bar").length) {
+                        $sidemenuSearchSection.append($navSearchBar);
+                }
+                } else {
+                // Move #nav-search-bar back to .nav-left
+                const $navLeft = $(".nav-left");
+                if (!$navLeft.find("#nav-search-bar").length) {
+                        $navLeft.append($navSearchBar);
+                }
+                }
+                }
+
+                // Run on page load
+                handleSearchBarPlacement();
+
+                // Run on window resize
+                $(window).resize(function () {
+                handleSearchBarPlacement();
+                });
+        });
+        </script>
  </nav>
  

@@ -78,30 +78,3 @@ header > .button-primary {
 	}
 }
 
-#mobile-logo-title {
-	display: none;
-}
-
-@media screen and (max-width: 1024px) {
-	#mobile-logo-title {
-		display: flex;
-		flex-direction: row;
-		margin-right: auto;
-	}
-	
-}
-
-@media screen and (max-width: 640px) {
-
-	.nav-right {
-		flex-wrap: wrap;
-		justify-content: space-between;
-	}
-
-	#mobile-logo-title {
-		align-self: center;
-		width: max-content;
-		box-sizing: border-box;
-	}
-	
-}
