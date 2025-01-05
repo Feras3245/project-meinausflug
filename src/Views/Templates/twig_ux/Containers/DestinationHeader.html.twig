@@ -1,13 +1,30 @@
+<h2 class="destination-header-title">Visit <strong>{{this.destination.city}}</strong></h2>
+{# <p>{{this.destination.subtitle}}</p> #}
 <header {{ attributes }} class="destination-header" id="dynamic-destination-header">
-    <div class="header-message-container">
-        <h2>Make <strong>A Vacation</strong></h2>
-        <p>simply &#38; comfortably</p>
-    </div>
     <twig:Components:Button id="explore-button" type="primary">
         <twig:Icons:ExploreIcon/>
-        Explore&nbsp;<span id="current-location"></span>
+        Book&nbsp;Your&nbsp;<span id="current-location"></span>&nbsp;Trip&nbsp;Now!
     </twig:Components:Button>
+    <div class="header-message-container">
+        
+        
+    </div>
+
 </header>
+
+<script>
+$(document).ready(function () {
+    function playAnimation() {
+        const element = $('.destination-header-title > strong');
+        element.addClass('animate glow'); // Add animation classes
+    }
+
+    // Play animation once when the page loads
+    playAnimation();
+});
+</script>
+
+
 
 <script>
     $(document).ready(function () {
@@ -16,12 +33,12 @@
         const locationSpan = $('#current-location');
 
         const destinationImages = [
-            {% for image in images %}
+            {% for image in this.destination.destImages %}
                     '{{ absolute_url(asset(image)) }}'{{ loop.last ? '' : ',' }}
             {% endfor %}
         ];
-        const cityName = '{{ this.city }}';
-        const destID = '{{ this.destID }}';
+        const cityName = '{{ this.destination.city }}';
+        const destID = '{{ this.destination.destID }}';
 
         let currentIndex = 0;
 

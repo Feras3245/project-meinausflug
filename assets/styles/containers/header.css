@@ -11,7 +11,7 @@ header {
 
 	transition: background-image 1s;
 
-	height: 100vh;
+	height: 90vh;
 
 	margin: 0.5vw 2vw 1vw 2vw;
 	border-radius: 30px;
@@ -54,10 +54,11 @@ header {
 	&>h2>strong {
 		color: #DBAF20;
 		font-weight: 900;
-		background: -webkit-linear-gradient(315deg, #DBAF20, #FF7773);
+		background: linear-gradient(315deg, #DBAF20, #FF7773);
 		-webkit-background-clip: text;
 		background-clip: text;
 		-webkit-text-fill-color: transparent;
+		-webkit-text-stroke: 1px #2c2c2c60;
 	}
 
 	&>p {

@@ -14,19 +14,18 @@
 	}
 
 	&:hover {
-		color: #848484;
-		transition: all 200ms;
-	}
-
-	&:active {
-		background: unset;
 		color: #FF5900;
 		transition: all 200ms;
 	}
 
+	&:active {
+		transform: scale(0.9);
+		transition: all 200ms;
+	}
+
 	&>svg {
-		width: 100%;
-		height: auto;
+		width: auto;
+		height: 100%;
 		overflow: visible;
 	}
 }

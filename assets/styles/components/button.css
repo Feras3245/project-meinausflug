@@ -147,7 +147,7 @@
 	}
 
 	&:hover {
-		color: #ffffff;
+		color: #FF5900;
 		/* Light orange tint */
 		background: #DBAF20;
 		background: linear-gradient(315deg, #dbaf204b, #ff787354);
@@ -155,7 +155,7 @@
 		transform: translateY(-2px);
 
 		&>svg {
-			color: #ffffff;
+			color: #FF5900;
 		}
 	}
 

@@ -5,8 +5,10 @@
 @import url("./components/review-score.css");
 @import url("./components/search-bar.css");
 @import url("./components/slideshow.css");
-@import url("./containers/destination-header.css");
-@import url("./containers/destination.css");
+@import url("./components/image-swiper.css");
+@import url("./containers/destination-card.css");
 @import url("./containers/header.css");
 @import url("./containers/nav-bar.css");
 @import url("./containers/sidemenu.css");
+@import url("./layouts/destination-layout.css");
+@import url("./containers/destination-general.css");

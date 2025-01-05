@@ -19,8 +19,8 @@
     <twig:Containers:NavBar/>
     {# <twig:Containers:Header :headerImages="header"/>
     <twig:Containers:DestinationCard :destination="destination"/> #}
-    <twig:Containers:DestinationHeader destID="1" city="Dubai" :images="destImages"/>
+    {# <twig:Containers:DestinationHeader :destination="destination" /> #}
+    <twig:Layouts:destinationLayout :destination="destination"/>
     <br><br>
-    <twig:Components:LogoTitle />
-    <div style="height: 2000px;"></div>
+    <twig:Containers:DestinationCard :destination="destination" />
 {% endblock %}

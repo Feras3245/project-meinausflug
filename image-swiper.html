@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/styles/light-theme.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.0/swiper-bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/swiper@11.2.0/swiper-bundle.min.css" rel="stylesheet">
+
+    <style>
+        .container {
+            width: 500px;
+            height: 500px;
+
+            border-radius: 20px;
+            background-color: white;
+            margin: 50px;
+        }
+
+        .image-swiper {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+
+            position: relative;
+        }
+
+        .image-swiper img {
+            width: 100%;
+            height: 100%;
+            object-position: center;
+            object-fit: cover;
+
+            border-radius: 20px;
+        }
+
+        .image-swiper-index {
+            --size: clamp(1.5rem, 1.214rem + 1.429vw, 2.5rem);
+            display: inline-flex;
+
+            & {
+                color: #343434;
+                width: var(--size);
+            }
+
+            &[data-selected="yes"] {
+                color: #FF5900;
+                transition: all 200ms;
+            }
+
+            &[data-selected="no"] {
+                color: #343434;
+                transition: all 200ms;
+            }
+
+            &>svg {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .image-swiper-controls {
+            display: inline-flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            gap: clamp(0.313rem, 0.134rem + 0.893vw, 0.938rem);
+
+            position: absolute;
+            z-index: 10;
+            bottom: 10px;
+            left: 50%;
+            transform: translate(-50%, 0);
+
+            padding: 10px;
+            background-color: #c5c5c56b;
+            backdrop-filter: blur(30px);
+            border-radius: 10px;
+
+            align-items: stretch;
+            justify-content: space-evenly;
+            max-width: 90%;
+
+            &>.image-swiper-slide {
+                flex-basis: auto;
+                max-width: fit-content;
+                /* flex-shrink: 1; */
+                flex-grow: 1;
+            }
+        }
+
+        #test-action-1 {
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 5px;
+
+            position: absolute;
+            z-index: 10;
+            top: 50%;
+            left: 10px;
+            transform: translate(0, -50%);
+
+            &>.user-action {
+                border-radius: 5px;
+                padding: 10px 0;
+                min-width: 50px;
+                justify-content: center;
+
+                background-color: #c5c5c56b;
+                backdrop-filter: blur(30px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="image-swiper" id="image-swiper-1">
+            <div class="user-actions" id="test-action-1">
+                <a class="button-secondary user-action" href="destination/favorite/{{this.rootID}}"
+                    id="favorite-button">
+                    <svg viewBox="0 0 100 100" fill="currentColor" stroke="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M16.8064 2.60834C20.1789 0.892536 23.8144 0 27.5001 0C31.1859 0 34.8213 0.892536 38.1938 2.60834C41.5645 4.32326 44.5925 6.81909 47.1195 9.92318C48.661 11.8166 51.339 11.8166 52.8805 9.92318C57.9895 3.64796 65.034 5.55779e-05 72.5 5.55779e-05C79.966 5.55779e-05 87.0105 3.64796 92.1195 9.92318C97.2135 16.1798 100 24.5557 100 33.1861C100 41.8167 97.2135 50.1926 92.1195 56.4488L61.1285 94.5136C55.173 101.829 44.827 101.829 38.8715 94.5136L7.88065 56.4488C5.3543 53.3462 3.3737 49.692 2.0301 45.708C0.68655 41.724 0 37.4705 0 33.1861C0 28.9017 0.68655 24.6483 2.0301 20.6644C3.3737 16.6802 5.3543 13.0261 7.88065 9.92318C10.4078 6.81909 13.4358 4.32326 16.8064 2.60834Z" />
+                    </svg>
+                </a>
+                <a class="button-secondary user-action" href="destination/share/{{this.rootID}}" id="share-button">
+                    <svg viewBox="0 0 18 20" fill="currentColor" stroke="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M13.75 7.5C15.8211 7.5 17.5 5.82106 17.5 3.75C17.5 1.67894 15.8211 0 13.75 0C11.6789 0 10 1.67894 10 3.75C10 4.02964 10.0306 4.30211 10.0886 4.56429L6.08576 7.06609C5.44499 6.55529 4.63315 6.25 3.75 6.25C1.67894 6.25 0 7.92894 0 10C0 12.0711 1.67894 13.75 3.75 13.75C4.63315 13.75 5.44499 13.4448 6.08576 12.9339L10.0886 15.4358C10.0306 15.6979 10 15.9704 10 16.25C10 18.3211 11.6789 20 13.75 20C15.8211 20 17.5 18.3211 17.5 16.25C17.5 14.1789 15.8211 12.5 13.75 12.5C12.8669 12.5 12.055 12.8052 11.4142 13.3161L7.41135 10.8143C7.46939 10.5521 7.5 10.2796 7.5 10C7.5 9.72036 7.46939 9.44789 7.41135 9.18571L11.4142 6.68391C12.055 7.19471 12.8669 7.5 13.75 7.5Z" />
+                    </svg>
+                </a>
+                <a class="button-secondary user-action" href="destination/hide/{{this.rootID}}" id="hide-button">
+                    <svg viewBox="0 0 24 20" fill="currentColor" stroke="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M4.72843 15.4754L1.88436 18.3195L3.56549 20L6.71797 16.8475C8.24043 17.7205 9.97623 18.3195 11.885 18.3195C19.0159 18.3195 23.7699 10 23.7699 10C23.7699 10 22.0151 6.93428 19.0415 4.5246L21.8855 1.68053L20.2044 0L17.0519 3.15248C15.5295 2.27953 13.7937 1.68053 11.885 1.68053C4.75398 1.68053 0 10 0 10C0 10 1.75481 13.0657 4.72843 15.4754ZM7.13097 10C7.13097 7.37461 9.25957 5.24602 11.885 5.24602C12.7662 5.24602 13.5887 5.49025 14.2964 5.90801L12.4929 7.71155C12.2974 7.65985 12.0965 7.62301 11.885 7.62301C10.574 7.62301 9.50796 8.68909 9.50796 10C9.50796 10.2116 9.54481 10.4124 9.59651 10.6079L7.79296 12.4115C7.37521 11.7037 7.13097 10.8813 7.13097 10ZM16.6389 10C16.6389 12.6254 14.5103 14.754 11.885 14.754C11.0037 14.754 10.1812 14.5097 9.4735 14.092L11.277 12.2884C11.4725 12.3401 11.6734 12.377 11.885 12.377C13.1959 12.377 14.2619 11.3109 14.2619 10C14.2619 9.78845 14.2251 9.58759 14.1734 9.39208L15.9769 7.58854C16.3947 8.29629 16.6389 9.11873 16.6389 10Z" />
+                    </svg>
+                </a>
+                <a class="button-secondary user-action" href="destination/compare/{{this.rootID}}" id="favorite-button">
+                    <svg viewBox="0 0 20 20" fill="currentColor" stroke="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M3.289 0.132961C5.10546 0.132961 6.578 1.60549 6.578 3.42196C6.578 4.78241 5.75201 5.94994 4.57417 6.4504L4.38534 6.52381V14.3853C4.38534 14.9475 4.80857 15.4109 5.35382 15.4742L5.48167 15.4816H7.90128L7.4472 15.0275C7.01906 14.5994 7.01906 13.9052 7.4472 13.4771C7.84237 13.0819 8.46427 13.0515 8.89434 13.3859L8.99761 13.4771L11.3234 15.8027C11.7186 16.198 11.749 16.8198 11.4146 17.2499L11.3234 17.3531L8.99761 19.6789C8.5695 20.107 7.8753 20.107 7.4472 19.6789C7.05199 19.2836 7.02159 18.6618 7.356 18.2318L7.4472 18.1285L7.90128 17.6743H5.48167C3.73008 17.6743 2.29829 16.3051 2.19825 14.5785L2.19267 14.3853V6.52381C0.915231 6.07231 0 4.85402 0 3.42196C0 1.60549 1.47254 0.132961 3.289 0.132961ZM10.7363 0.321114C11.1644 -0.107038 11.8586 -0.107038 12.2867 0.321114C12.6819 0.71632 12.7123 1.33819 12.3779 1.76828L12.2867 1.87156L11.8326 2.32563H14.2523C16.004 2.32563 17.4357 3.69486 17.5358 5.42138L17.5413 5.61463V13.4761C18.8188 13.9277 19.734 15.1459 19.734 16.5779C19.734 18.3944 18.2615 19.8669 16.445 19.8669C14.6285 19.8669 13.156 18.3944 13.156 16.5779C13.156 15.2175 13.982 14.05 15.1598 13.5495L15.3487 13.4761V5.61463C15.3487 5.05239 14.9255 4.589 14.3802 4.52567L14.2523 4.5183H11.8326L12.2868 4.97241C12.715 5.40056 12.715 6.09472 12.2868 6.52287C11.8915 6.91807 11.2697 6.94848 10.8396 6.61407L10.7363 6.52287L8.41064 4.19719C8.01545 3.80198 7.98505 3.18011 8.31944 2.75002L8.41064 2.64673L10.7363 0.321114Z" />
+                    </svg>
+                </a>
+            </div>
+
+            <div class="image-swiper-controls">
+                <a class="icon-button arrow-left" onclick="swipeLeft()">
+                    <svg viewBox="0 0 100 100" fill="currentColor" stroke="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M0.000520446 50.0003C0.000520446 59.8893 2.93295 69.5562 8.42699 77.7786C13.921 86.001 21.7299 92.4096 30.8662 96.194C40.0024 99.9783 50.0557 100.968 59.7547 99.0392C69.4537 97.11 78.3628 92.348 85.3554 85.3554C92.348 78.3628 97.11 69.4537 99.0392 59.7547C100.968 50.0557 99.9783 40.0024 96.194 30.8662C92.4096 21.7299 86.001 13.921 77.7786 8.42699C69.5562 2.93295 59.8893 0.000520446 50.0003 0.000520446C43.4258 -0.0295692 36.9105 1.24317 30.8306 3.74523C24.7508 6.2473 19.2269 9.9291 14.578 14.578C9.9291 19.2269 6.2473 24.7508 3.74523 30.8306C1.24317 36.9105 -0.0295692 43.4258 0.000520446 50.0003ZM59.5457 27.9549C60.631 28.9574 61.2832 30.3432 61.3638 31.8185V68.182C61.2832 69.6573 60.631 71.0431 59.5457 72.0456C58.5823 72.65 57.4347 72.8906 56.3097 72.7239C55.1846 72.5573 54.1561 71.9943 53.4093 71.1365L35.4549 53.1821C35.014 52.7775 34.662 52.2858 34.4212 51.7381C34.1804 51.1904 34.0561 50.5986 34.0561 50.0003C34.0561 49.4019 34.1804 48.8101 34.4212 48.2624C34.662 47.7147 35.014 47.223 35.4549 46.8185L53.4093 28.864C54.1561 28.0062 55.1846 27.4433 56.3097 27.2766C57.4347 27.1099 58.5823 27.3505 59.5457 27.9549Z" />
+                    </svg>
+                </a>
+                <div class="image-swiper-index" data-index="0" data-selected="yes">
+                    <svg viewBox="0 0 100 21" fill="currentColor" stroke="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M100 10.4648C100 15.9888 96.0829 20.467 91.2467 20.467H8.74807C6.33272 20.467 4.14554 19.3479 2.56143 17.5375C0.978636 15.7298 3.26516e-07 13.2297 3.26516e-07 10.4678C-0.00130597 4.94303 3.91715 0.465548 8.75264 0.467041H91.2532C96.0855 0.468285 99.9989 4.94303 100 10.4648Z" />
+                    </svg>
+                </div>
+                <div class="image-swiper-index" data-index="1" data-selected="no">
+                    <svg viewBox="0 0 100 21" fill="currentColor" stroke="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M100 10.4648C100 15.9888 96.0829 20.467 91.2467 20.467H8.74807C6.33272 20.467 4.14554 19.3479 2.56143 17.5375C0.978636 15.7298 3.26516e-07 13.2297 3.26516e-07 10.4678C-0.00130597 4.94303 3.91715 0.465548 8.75264 0.467041H91.2532C96.0855 0.468285 99.9989 4.94303 100 10.4648Z" />
+                    </svg>
+                </div>
+                <div class="image-swiper-index" data-index="2" data-selected="no">
+                    <svg viewBox="0 0 100 21" fill="currentColor" stroke="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M100 10.4648C100 15.9888 96.0829 20.467 91.2467 20.467H8.74807C6.33272 20.467 4.14554 19.3479 2.56143 17.5375C0.978636 15.7298 3.26516e-07 13.2297 3.26516e-07 10.4678C-0.00130597 4.94303 3.91715 0.465548 8.75264 0.467041H91.2532C96.0855 0.468285 99.9989 4.94303 100 10.4648Z" />
+                    </svg>
+                </div>
+                <div class="image-swiper-index" data-index="3" data-selected="no">
+                    <svg viewBox="0 0 100 21" fill="currentColor" stroke="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M100 10.4648C100 15.9888 96.0829 20.467 91.2467 20.467H8.74807C6.33272 20.467 4.14554 19.3479 2.56143 17.5375C0.978636 15.7298 3.26516e-07 13.2297 3.26516e-07 10.4678C-0.00130597 4.94303 3.91715 0.465548 8.75264 0.467041H91.2532C96.0855 0.468285 99.9989 4.94303 100 10.4648Z" />
+                    </svg>
+                </div>
+                <a class="icon-button arrow-right" onclick="swipeRight()">
+                    <svg viewBox="0 0 100 100" fill="currentColor" stroke="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M99.9995 49.9997C99.9995 40.1107 97.067 30.4438 91.573 22.2214C86.079 13.999 78.2701 7.59039 69.1338 3.80603C59.9976 0.0216643 49.9443 -0.968497 40.2453 0.960753C30.5463 2.89 21.6372 7.65202 14.6446 14.6446C7.65202 21.6372 2.89 30.5463 0.960753 40.2453C-0.968497 49.9443 0.0216643 59.9976 3.80603 69.1338C7.59039 78.2701 13.999 86.079 22.2214 91.573C30.4438 97.067 40.1107 99.9995 49.9997 99.9995C56.5742 100.03 63.0895 98.7568 69.1694 96.2548C75.2492 93.7527 80.7731 90.0709 85.422 85.422C90.0709 80.7731 93.7527 75.2492 96.2548 69.1694C98.7568 63.0895 100.03 56.5742 99.9995 49.9997ZM40.4543 72.0451C39.369 71.0426 38.7168 69.6568 38.6362 68.1815V31.818C38.7168 30.3427 39.369 28.9569 40.4543 27.9544C41.4177 27.35 42.5653 27.1094 43.6903 27.2761C44.8154 27.4427 45.8439 28.0057 46.5907 28.8635L64.5451 46.8179C64.986 47.2225 65.338 47.7142 65.5788 48.2619C65.8196 48.8096 65.9439 49.4014 65.9439 49.9997C65.9439 50.5981 65.8196 51.1899 65.5788 51.7376C65.338 52.2853 64.986 52.777 64.5451 53.1815L46.5907 71.136C45.8439 71.9938 44.8154 72.5567 43.6903 72.7234C42.5653 72.8901 41.4177 72.6495 40.4543 72.0451Z" />
+                    </svg>
+                </a>
+            </div>
+            <div class="swiper-wrapper">
+                <img class="swiper-slide" src="./assets/images/destinations/UAE/image-1.jpg" />
+                <img class="swiper-slide" src="./assets/images/destinations/UAE/image-2.jpg" />
+                <img class="swiper-slide" src="./assets/images/destinations/UAE/image-3.jpg" />
+                <img class="swiper-slide" src="./assets/images/destinations/UAE/image-4.jpg" />
+            </div>
+        </div>
+    </div>
+    <script>
+        {
+            const swiper = new Swiper('#image-swiper-1', {
+                direction: 'horizontal',
+                loop: true,
+                spaceBetween: 600,
+                speed: 800,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false
+                },
+                effect: 'cards',
+            });
+
+            swiper.on('slideChange', function () {
+                $("#image-swiper-1").find(".image-swiper-index").map(function (index, imageSwiperIndex) {
+                    imageSwiperIndex.setAttribute("data-selected", "no");
+                });
+                $("#image-swiper-1").find(".image-swiper-index")[swiper.realIndex].setAttribute("data-selected", "yes");
+            });
+
+            function swipeLeft() {
+                swiper.slidePrev();
+
+            }
+
+            function swipeRight() {
+                swiper.slideNext();
+            }
+        }
+    </script>
+</body>
+
+</html>

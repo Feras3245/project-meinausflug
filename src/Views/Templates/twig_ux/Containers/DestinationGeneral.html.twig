@@ -1,0 +1,73 @@
+<section {{attributes}} class="section-slide destination-general">
+    <div class="swiper-controls">
+        <a class="icon-button left"><twig:Icons:ArrowLeftIcon/></a>
+        <p><span class="current-section-slide" id="current-{{id}}">1</span> / <span class="total-section-slides" id="total-{{id}}"></span></p>
+        <a class="icon-button right"><twig:Icons:ArrowRightIcon/></a>
+    </div>
+    <div class="swiper-wrapper">
+        <div class="swiper-slide section-slide-swipecard" data-swipecard="1">
+            <div class="content-box" data-box="1">
+                <h3 class="title">{{destination.city}}, {{destination.country}}</h3>
+                <span class="subtitle">{{destination.subtitle}}</span>
+                <twig:Components:ImageSwiper rootID="{{id}}" :images="destination.destImages"/>
+            </div>
+            <div class="horizontal-divider"></div>
+            <div class="content-box" data-box="2">
+                <div class="actions-reviews">
+                    <twig:Components:UserActions rootID="{{destination.destID}}"/>
+                    <div class="average-reviews">
+                        <p>{{destination.reviewsCount}} Reviews</p>
+                        <twig:Components:ReviewScore :score="destination.avgScore"/>
+                    </div>
+                </div>
+                <h4 class="about">About {{destination.city}}</h4>
+                <p class="description">{{destination.description}}</p>
+                <twig:Components:Button type="primary"><twig:Icons:ClickActionIcon/>Book Your Trip Now!</twig:Components:Button>
+            </div>
+        </div>
+        <div class="swiper-slide section-slide-swipecard" data-swipecard="2">
+            <h3 class="title">Locations</h3>
+            <div class="map"></div>
+        </div>
+        <div class="swiper-slide section-slide-swipecard" data-swipecard="3">Slide 3</div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            const swiper = new Swiper('#{{ id }}', {
+                direction: 'horizontal',
+                loop: false,
+                spaceBetween: 600,
+                speed: 700,
+
+                effect: 'coverflow',
+                coverflowEffect: {
+                    depth: 0,
+                    modifier: 1,
+                    rotate: 0,
+                    scale: 1,
+                    slideShadows: false,
+                    stretch: 0,
+                },
+
+                on: {
+                    init: function () {
+                        $("#total-{{ id }}").text(this.slides.length);
+
+                        $("#{{id}} .swiper-controls .icon-button.left").on("click", function () {
+                            $("#{{id}}")[0].swiper.slidePrev();
+                        });
+
+                        $("#{{id}} .swiper-controls .icon-button.right").on("click", function () {
+                            $("#{{id}}")[0].swiper.slideNext();
+                        });
+                    },
+
+                    slideChange: function () {
+                        $("#current-{{ id }}").text(this.realIndex + 1);
+                    }
+                },
+            });
+        });
+    </script>
+</section>

@@ -1,0 +1,63 @@
+
+<div {{attributes}} class="image-swiper" id="image-swiper-{{this.rootID}}">
+
+    <twig:Components:UserActions/>
+
+    <div class="image-swiper-controls">
+        <a class="icon-button left">
+            <twig:Icons:ArrowLeftIcon/>
+        </a>
+        {% for image in images %}
+        <div class="image-swiper-index" data-index="{{ loop.index }}"
+            data-selected="{% if loop.first %} 'yes' {% else %} 'no' {% endif %}">
+            <twig:Icons:SlideBarIcon />
+        </div>
+        {% endfor %}
+        <a class="icon-button right">
+            <twig:Icons:ArrowRightIcon/>
+        </a>
+    </div>
+    <div class="swiper-wrapper">
+        {% for image in images %}
+            <img class="swiper-slide" src="{{ absolute_url(asset(image)) }}" />
+        {% endfor %}
+    </div>
+    <script>
+        $(document).ready(function(){
+            const imageswiper = new Swiper('#image-swiper-{{ rootID }}', {
+                direction: 'horizontal',
+                loop: true,
+                spaceBetween: 600,
+                speed: 800,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false
+                },
+                effect: 'cards',
+
+                on: {
+                    init: function () {
+                        $("#total-{{ this.rootID }}").text(this.slides.length);
+
+                        $("#image-swiper-{{this.rootID}} .image-swiper-controls .icon-button.left").on("click", function () {
+                            $("#image-swiper-{{this.rootID}}")[0].swiper.slidePrev();
+                        });
+
+                        $("#image-swiper-{{this.rootID}} .image-swiper-controls .icon-button.right").on("click", function () {
+                            $("#image-swiper-{{this.rootID}}")[0].swiper.slideNext();
+                        });
+                    },
+                    
+                    slideChange: function () {
+                        $("#image-swiper-{{this.rootID}}").find(".image-swiper-index").map(function (index, imageSwiperIndex) {
+                            imageSwiperIndex.setAttribute("data-selected", "no");
+                        });
+                        $("#image-swiper-{{this.rootID}}").find(".image-swiper-index")[this.realIndex].setAttribute("data-selected", "yes");
+                    },
+                },
+            });
+        });
+    </script>
+</div>
+
+

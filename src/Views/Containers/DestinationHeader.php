@@ -7,7 +7,5 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent]
 class DestinationHeader
 {
-    public array $images;
-    public string $city;
-    public int $destID;
+    public Destination $destination;
 }

@@ -62,7 +62,7 @@ class MainController extends AbstractController
 
         // Render the template with both header images and destination object
         return $this->render('main.html.twig', [
-            'destImages' => $destImages
+            'destination' => $destinationUAE,
             // 'destination' => $destinationUAE, // Pass the destination object
         ]);
     }

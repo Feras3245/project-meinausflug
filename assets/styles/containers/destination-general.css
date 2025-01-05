@@ -1,0 +1,141 @@
+.section-slide {
+    position: relative;
+    overflow: visible;
+}
+
+.section-slide .swiper-controls {
+    display: flex;
+    flex-flow: row nowrap;
+    position: fixed;
+    align-items: center;
+
+    bottom: 20px;
+    right: 40px;
+
+    gap: 10px;
+
+    z-index: 10;
+
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #343434;
+    border-radius: 5px;
+}
+
+.section-slide .swiper-controls .icon-button {
+    --size: 1rem
+}
+
+.user-action {
+    padding: 10px 0;
+    border-radius: 5px;
+    width: 50px;
+    justify-content: center;
+}
+
+.section-slide-swipecard {
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.destination-general .section-slide-swipecard[data-swipecard="1"] {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    color: #343434;
+}
+
+.destination-general .section-slide-swipecard[data-swipecard="1"] .content-box {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    min-width: 45%;
+    flex: 1;
+    gap: 10px;
+}
+
+.destination-general .section-slide-swipecard .horizontal-divider {
+    background-color: #cecece;
+}
+
+.destination-general .section-slide-swipecard[data-swipecard="1"] .content-box[data-box="1"] {
+
+    text-align: center;
+}
+
+
+.destination-general .section-slide-swipecard[data-swipecard="1"] .content-box[data-box="1"] .title {
+    font-size: clamp(2.25rem, 0.825rem + 2.4vw, 3rem);
+    font-weight: 900;
+}
+
+.destination-general .section-slide-swipecard[data-swipecard="1"] .content-box[data-box="1"] .subtitle {
+    font-size: clamp(1.25rem, 0.5375rem + 1.2vw, 1.625rem);
+    font-weight: 200;
+}
+
+.destination-general .section-slide-swipecard[data-swipecard="1"] .content-box[data-box="2"] .actions-reviews {
+    display: flex;
+    flex-flow: row nowrap;
+    align-self: stretch;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.destination-general .section-slide-swipecard[data-swipecard="1"] .content-box[data-box="2"] .actions-reviews .average-reviews {
+    &>p {
+        font-size: 1rem;
+        text-align: right;
+        margin-right: 20px;
+    }
+
+    &>.review-score {
+        --size: 1.3rem;
+    }
+}
+
+.destination-general .section-slide-swipecard[data-swipecard="1"] .content-box[data-box="2"] .about {
+    font-size: clamp(1.875rem, 1.163rem + 1.2vw, 2.25rem);
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.destination-general .section-slide-swipecard[data-swipecard="1"] .content-box[data-box="2"] .description {
+    height: 400px;
+    font-size: clamp(1rem, 0.43rem + 0.96vw, 1.3rem);
+    line-height: clamp(1.5rem, 0.55rem + 1.6vw, 2rem);
+    overflow-y: scroll;
+    margin-bottom: 20px;
+}
+
+.destination-general .section-slide-swipecard[data-swipecard="1"] .content-box[data-box="2"] .button-primary {
+
+    align-self: center;
+    --size: clamp(1rem, 0.05rem + 1.6vw, 1.5rem);
+    padding: 10px 20px;
+}
+
+.destination-general .section-slide-swipecard[data-swipecard="1"] .content-box[data-box="2"] {
+    display: flex;
+    flex-flow: column nowrap;
+
+    align-items: flex-start;
+
+    gap: 10px;
+}
+
+.destination-general .section-slide-swipecard[data-swipecard="2"] {
+    color: #343434;
+}
+
+.destination-general .section-slide-swipecard[data-swipecard="2"] .title {
+    font-size: clamp(2.25rem, 0.825rem + 2.4vw, 3rem);
+    font-weight: 900;
+}
+
+/* .destination-general .section-slide-swipecard[data-swipecard="2"] .map {
+    width: 100%;
+    height: 100%;
+} */

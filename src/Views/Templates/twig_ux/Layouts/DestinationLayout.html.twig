@@ -1,0 +1,56 @@
+<h2 class="destination-header-title">Visit <strong>Dubai</strong></h2>
+<div class="section-slider">
+    <div class="section-slider-controls">
+        <a class="button-tertiary section-slider-nav-button" data-section="1" data-selected="yes"><twig:Icons:InfoIcon/>General</a>
+        <a class="button-tertiary section-slider-nav-button" data-section="2" data-selected="no"><twig:Icons:HotelIcon/>Hotels</a>
+        <a class="button-tertiary section-slider-nav-button" data-section="3" data-selected="no"><twig:Icons:AttractionIcon/>Attractions</a>
+        <a class="button-tertiary section-slider-nav-button" data-section="4" data-selected="no"><twig:Icons:RecreationIcon/>Activities</a>
+        <a class="button-tertiary section-slider-nav-button" data-section="5" data-selected="no"><twig:Icons:FullStarIcon/>Reviews</a>
+        <a class="button-tertiary section-slider-nav-button" data-section="6" data-selected="no"><twig:Icons:LocationsIcon/>Locations</a>
+        <a class="button-tertiary section-slider-nav-button" data-section="7" data-selected="no"><twig:Icons:PlaneTicketsIcon/>Book Now!</a>
+    </div>
+    <div class="sections">
+        <twig:Containers:DestinationGeneral id="section-slide-1" data-section="1" data-selected="yes" :destination="destination"/>
+        <section class="section-slide" id="section-slide-2" data-section="2" data-selected="no">test section-2</section>
+        <section class="section-slide" id="section-slide-3" data-section="3" data-selected="no">test section-3</section>
+        <section class="section-slide" id="section-slide-4" data-section="4" data-selected="no">test section-4</section>
+        <section class="section-slide" id="section-slide-5" data-section="5" data-selected="no">test section-5</section>
+        <section class="section-slide" id="section-slide-6" data-section="6" data-selected="no">test section-6</section>
+        <section class="section-slide" id="section-slide-7" data-section="7" data-selected="no">test section-7</section>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('.section-slider-nav-button').on('click', function (e) {
+            e.preventDefault();
+            const targetSectionId = $(this).data('section');
+
+            const targetSlide = $('#section-slide-' + targetSectionId);
+            const targetSliderButton = $(this);
+
+            if (targetSlide.length) {
+                // Create a promise for scrollIntoView completion
+                const scrollPromise = new Promise((resolve) => {
+                    targetSlide.get(0).scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest',
+                        inline: 'center'
+                    });
+
+                    // Wait for scroll animation to complete
+                    setTimeout(resolve, 600); // 500ms matches the CSS transition time
+                });
+
+                // Update attributes after scroll completes
+                scrollPromise.then(() => {
+                    $('.section-slide').attr("data-selected", "no");
+                    $('.section-slider-nav-button').attr("data-selected", "no");
+
+                    targetSlide.attr("data-selected", "yes");
+                    targetSliderButton.attr("data-selected", "yes");
+                });
+            }
+        });
+    });
+</script>
+</div>

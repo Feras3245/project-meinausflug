@@ -4,14 +4,15 @@
 	background-position:center;
 
 	display: flex;
-	flex-direction: column;
+	flex-flow: row nowrap;
 
-    place-content: center;
+    place-content: space-between;
     align-items: center;
 
 	transition: background-image 1s;
 
-	height: 100vh;
+	max-width: 100%;
+	max-height: 70%;
 
 	margin: 0.5vw 2vw 1vw 2vw;
 	border-radius: 30px;
@@ -19,7 +20,6 @@
 	gap: 5vh;
 
 	box-shadow: 0px 10px 25px -10px rgba(0,0,0,0.8);
-	
 
 	& > .button-primary > #current-location {
 		font-weight: 700;
@@ -29,52 +29,121 @@
 /* Responsive hero banner */
 .destination-header .header-message-container {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: center;
 	gap: 10px;
 	flex-flow: column nowrap;
 
-	margin: 10px;
+	/* align-self: flex-end; */
 
-	text-align: center;
+	margin: 10px;
+	margin-top: 100px;
+
+	text-align: left;
+
+	max-width: 800px;
 
 	padding: 20px;
 	background-color: #c5c5c56b;
-	backdrop-filter: blur(30px);
+	backdrop-filter: blur(20px);
 	border-radius: 20px;
 
 	box-shadow: 0px 10px 25px -10px rgba(0,0,0,0.8);
 
-	&>h2 {
-		color: #343434;
-		font-size: clamp(3rem, 1.447rem + 7.767vw, 8rem);
-		font-weight: 700;
-	}
-
-	&>h2>strong {
-		color: #DBAF20;
-		font-weight: 900;
-		background: -webkit-linear-gradient(315deg, #DBAF20, #FF7773);
-		-webkit-background-clip: text;
-		background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
-
 	&>p {
 		color: #343434;
 		font-weight: 300;
-		font-size: clamp(1.25rem, 0.396rem + 4.272vw, 4rem);
+		/* font-size: clamp(1.25rem, 0.396rem + 4.272vw, 4rem); */
+		font-size: clamp(1.5rem, 1.1571rem + 1.7143vw, 2.7rem);
 	}
 }
 
+.destination-header-title {
+	color: #343434;
+	/* font-size: clamp(3rem, 1.447rem + 7.767vw, 8rem); */
+	font-size: clamp(2.75rem, 1.75rem + 5vw, 6.25rem);
+	font-weight: 700;
+	margin-top: 50px;
+	margin-left: 3vw;
+	text-align: left;
+}
+
+/* .destination-header-title>strong {
+	color: #DBAF20;
+	font-weight: 900;
+	background: -webkit-linear-gradient(315deg, #DBAF20, #FF7773);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: lights 5s 750ms linear infinite;
+} */
+
+
+
 .destination-header > .button-primary {
-	--size: clamp(1rem, 0.689rem + 1.553vw, 2rem);
+	--size: 2rem;
+	flex-direction: column;
 	padding: clamp(1rem, 0.689rem + 1.553vw, 2rem);
+
+	height: 150px;
+	width: 150px;
+	border-radius: 50%;
+
+	text-align: center;
 
 	gap: 0;
 
 	&>svg {
+		display: none;
 		margin-right: 10px;
 	}
 }
 
+.destination-header-title > strong {
+	color: #DBAF20;
+	font-weight: 900;
+	background: -webkit-linear-gradient(315deg, #DBAF20, #FF7773);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.animate {
+	animation-duration: 2s;
+	animation-delay: 0s;
+	animation-name: animate-glow;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards; /* Ensures animation stops at 100% */
+}
+
+@keyframes animate-glow {
+	0% {
+		opacity: 0;
+		filter: brightness(3) saturate(3);
+		transform: scale(0.8, 0.8);
+	}
+	100% {
+		opacity: 1;
+		filter: brightness(1) saturate(1);
+		transform: scale(1, 1);
+	}
+}
+
+  
+  /* Glow In */
+  .animate.glow {
+	animation-name: animate-glow;
+	animation-timing-function: ease;
+  }
+  
+
+  
+  .delay-1 {
+	animation-delay: 0.6s;
+  }
+  .delay-2 {
+	animation-delay: 0.7s;
+  }
+  .delay-3 {
+	animation-delay: 0.8s;
+  }

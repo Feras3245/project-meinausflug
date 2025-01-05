@@ -39,7 +39,7 @@ nav {
 
 
 /* Responsive Breakpoints */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1040px) {
 	nav {
 		flex-wrap: wrap;
 		justify-content: flex-end;
