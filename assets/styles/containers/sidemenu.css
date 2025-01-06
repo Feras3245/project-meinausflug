@@ -37,7 +37,6 @@
     padding: 10px;
     margin: 5px 0;
     font-weight: bold;
-    color: #343434;
     background: linear-gradient(315deg, #DBAF20, #FF7773);
     border-radius: 10px;
     backdrop-filter: blur(30px);
@@ -45,7 +44,6 @@
     text-align: left;
 
 	&>svg {
-        color: #343434;
 		width: auto;
 		height: 27px;
 	}

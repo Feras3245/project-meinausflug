@@ -8,7 +8,6 @@ search {
 	align-items: center;
 	justify-content: flex-start;
 	gap: 10px;
-	color: #343434;
 	border-radius: 1000px;
 	transition: all 200ms;
 	border: 2px solid transparent;
@@ -26,9 +25,6 @@ search>input {
 	outline: hidden;
 }
 
-search>input::placeholder {
-	color: #343434;
-}
 
 search:hover {
 	border-color: #343434;
@@ -38,7 +34,6 @@ search:hover {
 	}
 
 	&>.button-secondary {
-		color: #343434;
 		background-color: unset;
 		visibility: visible;
 	}
@@ -75,8 +70,7 @@ search:has(input:focus)>.button-secondary {
 search>.button-secondary {
 	all: unset;
 	border-radius: 1000px;
-	padding: 10px;
-	color: #343434;
+	padding: 10px;	
 	visibility: hidden;
 	user-select: none;
 	cursor: pointer;
@@ -92,7 +86,7 @@ search>.button-secondary>svg {
 
 search:hover>.button-secondary {
 	visibility: visible;
-	color: #343434;
+	
 }
 
 search:hover>.button-secondary:hover {

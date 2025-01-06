@@ -1,5 +1,4 @@
 .destination-header-title {
-    color: #343434;
     /* font-size: clamp(3rem, 1.447rem + 7.767vw, 8rem); */
     font-size: clamp(2.75rem, 1.75rem + 5vw, 6.25rem);
     font-weight: 700;

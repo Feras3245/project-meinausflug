@@ -11,8 +11,6 @@
 		background: #DBAE1F;
 		background: linear-gradient(135deg, #DBAE1F, #FF7773);
 
-		color: #343434;
-
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -74,7 +72,6 @@
 		align-content: center;
 		gap: 10px;
 
-		color: #343434;
 		box-shadow: inset 0px 0px 0px 2px #343434;
 
 		white-space: nowrap;
@@ -124,8 +121,6 @@
 		all: unset;
 		padding: 10px 20px;
 		align-self: stretch;
-
-		color: #252525;
 		user-select: none;
 		cursor: pointer;
 
@@ -173,7 +168,7 @@
 	&>svg {
 		height: calc(var(--size) * 1.5);
 		transition: transform 200ms ease-in-out, color 200ms ease-in-out;
-		color: #343434;
+		
 		overflow: visible;
 	}
 }

@@ -14,7 +14,7 @@
 	display: inline-flex;
 
 	& {
-		color: #343434;
+
 		width: var(--size);
 	}
 

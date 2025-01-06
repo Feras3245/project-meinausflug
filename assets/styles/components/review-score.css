@@ -22,7 +22,6 @@
 		width: auto;
 		height: var(--size);
 		overflow: visible;
-		color: #343434;
 	}
 
 	&>span {

@@ -3,7 +3,6 @@
 
 	& {
 		all: unset;
-		color: #343434;
 		user-select: none;
 		cursor: pointer;
 		transition: all 200ms;

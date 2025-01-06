@@ -2,13 +2,13 @@
 	--size: clamp(1.25rem, 1.121rem + 0.644vw, 1.875rem);
 
 	& {
+		color: #343434;
 		display: inline-flex;
 		flex-flow: row nowrap;
 		gap: 5px;
 
 		justify-content: center;
 		align-items: center;
-		color: #343434;
 		background: -webkit-linear-gradient(315deg, #DBAF20, #FF7773);
 		-webkit-background-clip: text;
 		background-clip: text;
@@ -23,10 +23,6 @@
 		width: calc(var(--size) * 2);
 	}
 
-	&>svg>.logo-background {
-		color: #343434;
-	}
-
 	&>svg>.logo-foreground {
 		fill: url('#logo-gradient');
 	}
@@ -37,7 +33,6 @@
 
 	&>span>strong {
 		font-weight: 900;
-		color: #343434;
 		-webkit-background-clip: initial;
 		background-clip: initial;
 		-webkit-text-fill-color: initial;
