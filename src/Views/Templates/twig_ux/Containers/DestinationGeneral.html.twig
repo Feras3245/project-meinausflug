@@ -27,7 +27,7 @@
         </div>
         <div class="swiper-slide section-slide-swipecard" data-swipecard="2">
             <h3 class="title">Locations</h3>
-            <div class="map"></div>
+            <div class="map" id="locations-map-{{id}}"></div>
         </div>
         <div class="swiper-slide section-slide-swipecard" data-swipecard="3">Slide 3</div>
     </div>
@@ -69,5 +69,52 @@
                 },
             });
         });
+    </script>
+
+
+    <script>
+    $(document).ready(function() {
+    var map = new ol.Map({
+            target: 'locations-map-{{id}}',
+            layers: [
+                new ol.layer.Tile({
+                    source: new ol.source.OSM()
+                })
+            ],
+            view: new ol.View({
+                center: ol.proj.fromLonLat([55.3148, 25.2276]),
+                zoom: 12
+            })
+        });
+
+        // Define a custom marker style with an SVG
+        var markerStyle = new ol.style.Style({
+            image: new ol.style.Icon({
+                src: './assets/test-icon.png', // Replace with the path to your SVG file
+                anchor: [0.5, 1], // Center the icon on the point
+                scale: 0.1 // Adjust the scale of the SVG if needed
+            })
+        });
+
+        // Create a feature for the marker
+        var marker = new ol.Feature({
+            geometry: new ol.geom.Point(ol.proj.fromLonLat([55.2708, 25.2048])) // Dubai's coordinates
+        });
+
+        // Apply the custom style to the marker
+        marker.setStyle(markerStyle);
+
+        // Create a vector source and layer for the marker
+        var vectorSource = new ol.source.Vector({
+            features: [marker]
+        });
+
+        var vectorLayer = new ol.layer.Vector({
+            source: vectorSource
+        });
+
+        // Add the vector layer to the map
+        map.addLayer(vectorLayer);
+    });
     </script>
 </section>
