@@ -49,4 +49,7 @@ Nachfolgend finden Sie eine Übersicht über die Verzeichnisstruktur des Projekt
 
 
 ## Demo
+### UI/UX
 ![demo](https://github.com/Feras3245/project-meinausflug/blob/02ea75344e3cb9aa225302e89857823689e948f8/compressed.gif)
+### Responsive Demo
+![demo](https://github.com/Feras3245/project-meinausflug/blob/a4e7d646eecf6006c428b2067eb5b16a37a347a1/demo-2.gif)
